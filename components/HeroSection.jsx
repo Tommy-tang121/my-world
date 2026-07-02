@@ -1,5 +1,3 @@
-import CTAButton from './CTAButton'
-
 export default function HeroSection({ name, tagline, subtitle }) {
   return (
     <section className="relative overflow-hidden">
@@ -15,11 +13,7 @@ export default function HeroSection({ name, tagline, subtitle }) {
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">
             {name}
           </h1>
-          <p className="text-lg text-text-secondary mb-6">{subtitle}</p>
-          <div className="flex gap-4">
-            <CTAButton href="/works" variant="primary">探索我的作品</CTAButton>
-            <CTAButton href="/about" variant="outline">了解我的经历</CTAButton>
-          </div>
+          <p className="text-lg text-text-secondary">{subtitle}</p>
         </div>
         <div className="w-[120px] h-[120px] rounded-2xl border border-border shadow-[0_0_40px_rgba(230,57,70,0.1)] bg-surface-elevated flex items-center justify-center flex-shrink-0">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" strokeWidth="1.5">
