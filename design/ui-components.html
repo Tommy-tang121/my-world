@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汤思远 Portfolio — UI Components & Design System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style id="theme-vars">
+:root {
+  --color-primary: #E63946;
+  --color-primary-light: #FF6B6B;
+  --color-primary-dark: #C1121F;
+  --color-background: #0A0A0A;
+  --color-surface: #111111;
+  --color-surface-elevated: #1A1A1A;
+  --color-border: #2A2A2A;
+  --color-border-subtle: #1E1E1E;
+  --color-text-primary: #F0F0F0;
+  --color-text-secondary: #999999;
+  --color-text-tertiary: #666666;
+  --state-success: #22C55E;
+  --state-warning: #F59E0B;
+  --state-error: #EF4444;
+  --state-info: #3B82F6;
+  --font-display: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --text-size-xs: 0.75rem;
+  --text-size-sm: 0.875rem;
+  --text-size-base: 1rem;
+  --text-size-lg: 1.125rem;
+  --text-size-xl: 1.5rem;
+  --text-size-2xl: 2rem;
+  --text-size-3xl: 2.5rem;
+  --text-size-4xl: 3.5rem;
+  --text-size-5xl: 4.5rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.02em;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --container-max: 1700px;
+  --container-padding: 2rem;
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+html.dark, html {
+  --color-primary: #E63946;
+  --color-primary-light: #FF6B6B;
+  --color-primary-dark: #C1121F;
+  --color-background: #0A0A0A;
+  --color-surface: #111111;
+  --color-surface-elevated: #1A1A1A;
+  --color-border: #2A2A2A;
+  --color-border-subtle: #1E1E1E;
+  --color-text-primary: #F0F0F0;
+  --color-text-secondary: #999999;
+  --color-text-tertiary: #666666;
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <style type="text/tailwindcss">
+@layer base {
+  body { background: #0A0A0A !important; color: #F0F0F0; }
+  td, th { break-words; word-break: break-all; word-break: auto-phrase; }
+  th { white-space: nowrap; }
+}
+    </style>
+    <style>
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif; }
+
+      /* --- Sidebar --- */
+      .ds-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 240px;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.95);
+        border-right: 1px solid rgba(42, 42, 42, 0.5);
+        overflow-y: auto;
+        padding: 1.5rem 0;
+        z-index: 100;
+      }
+      .ds-sidebar::-webkit-scrollbar { width: 4px; }
+      .ds-sidebar::-webkit-scrollbar-track { background: transparent; }
+      .ds-sidebar::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 2px; }
+      .ds-sidebar-title {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #E63946;
+        padding: 0 1.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .ds-sidebar a {
+        display: block;
+        font-size: 0.8125rem;
+        color: #666666;
+        text-decoration: none;
+        padding: 0.35rem 1.5rem;
+        transition: color 250ms ease, background 250ms ease;
+        border-left: 2px solid transparent;
+      }
+      .ds-sidebar a:hover {
+        color: #F0F0F0;
+        background: rgba(42, 42, 42, 0.2);
+        border-left-color: rgba(230, 57, 70, 0.3);
+      }
+      .ds-sidebar a.active {
+        color: #E63946;
+        border-left-color: #E63946;
+      }
+
+      /* --- Main content --- */
+      .ds-main {
+        margin-left: 240px;
+        padding: 2.5rem 3rem 4rem;
+        max-width: 960px;
+        background: #0A0A0A;
+        min-height: 100vh;
+      }
+
+      /* --- Section --- */
+      .ds-section {
+        margin-bottom: 3.5rem;
+      }
+      .ds-section-header {
+        margin-bottom: 1.5rem;
+      }
+      .ds-section-num {
+        font-size: 0.6875rem;
+        color: #E63946;
+        font-weight: 600;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.05em;
+      }
+      .ds-section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #F0F0F0;
+        margin-top: 0.25rem;
+      }
+      .ds-section-desc {
+        font-size: 0.875rem;
+        color: #666666;
+        margin-top: 0.5rem;
+        line-height: 1.6;
+      }
+
+      /* --- Gradient divider --- */
+      .ds-divider {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(230, 57, 70, 0.3), transparent);
+        margin: 2.5rem 0;
+      }
+
+      /* --- Color swatch grid --- */
+      .swatch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.75rem;
+      }
+      .swatch {
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(42, 42, 42, 0.5);
+      }
+      .swatch-color {
+        height: 56px;
+      }
+      .swatch-info {
+        padding: 0.5rem;
+        background: #111111;
+      }
+      .swatch-name {
+        font-size: 0.6875rem;
+        color: #999999;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .swatch-hex {
+        font-size: 0.75rem;
+        color: #F0F0F0;
+        font-family: 'JetBrains Mono', monospace;
+        margin-top: 2px;
+      }
+
+      /* --- Spacing bar --- */
+      .spacing-bar {
+        height: 24px;
+        border-radius: 4px;
+        background: rgba(230, 57, 70, 0.3);
+        border: 1px solid rgba(230, 57, 70, 0.5);
+        display: flex;
+        align-items: center;
+        padding-left: 8px;
+        margin-bottom: 6px;
+      }
+      .spacing-bar-label {
+        font-size: 0.6875rem;
+        font-family: 'JetBrains Mono', monospace;
+        color: #F0F0F0;
+        white-space: nowrap;
+      }
+
+      /* --- Demo table --- */
+      .ds-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.8125rem;
+      }
+      .ds-table th {
+        text-align: left;
+        padding: 0.625rem 0.75rem;
+        background: #111111;
+        color: #999999;
+        font-weight: 600;
+        border-bottom: 1px solid #2A2A2A;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .ds-table td {
+        padding: 0.625rem 0.75rem;
+        border-bottom: 1px solid rgba(42, 42, 42, 0.3);
+        color: #F0F0F0;
+        vertical-align: top;
+      }
+      .ds-table tr:hover td {
+        background: rgba(42, 42, 42, 0.15);
+      }
+      .ds-table code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        color: #FF6B6B;
+        background: rgba(230, 57, 70, 0.08);
+        padding: 0.125rem 0.375rem;
+        border-radius: 3px;
+      }
+
+      /* --- Component demo boxes --- */
+      .demo-box {
+        background: #111111;
+        border: 1px solid rgba(42, 42, 42, 0.5);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* --- Nav link states demo --- */
+      .nav-state-demo a {
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #666666;
+        transition: color 250ms ease;
+        margin-right: 1.5rem;
+      }
+      .nav-state-demo a:hover { color: #F0F0F0; }
+      .nav-state-demo a.state-active { color: #999999; }
+
+      /* --- Entry card demo --- */
+      .entry-card {
+        display: flex;
+        flex-direction: column;
+        background: rgba(17,17,17,0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(42,42,42,0.5);
+        border-radius: 1rem;
+        padding: 2rem;
+        text-decoration: none;
+        transition: border-color 300ms ease, box-shadow 300ms ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .entry-card:hover {
+        border-color: rgba(230,57,70,0.3);
+        box-shadow: 0 0 30px rgba(230,57,70,0.08);
+      }
+      .card-icon {
+        color: #E63946;
+        margin-bottom: 1rem;
+      }
+
+      /* --- Border glow card --- */
+      .border-glow-card {
+        --mouse-x: 50%;
+        --mouse-y: 50%;
+        position: relative;
+        overflow: hidden;
+      }
+      .border-glow-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(230,57,70,0.4), transparent 40%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 300ms ease;
+        pointer-events: none;
+      }
+      .border-glow-card:hover::before {
+        opacity: 1;
+      }
+
+      /* --- CTA buttons --- */
+      .cta-primary {
+        display: inline-block;
+        background: #E63946;
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: background 250ms ease, box-shadow 250ms ease;
+      }
+      .cta-primary:hover {
+        background: #C1121F;
+        box-shadow: 0 0 24px rgba(230,57,70,0.25);
+      }
+      .cta-outline {
+        display: inline-block;
+        border: 1px solid rgba(230,57,70,0.5);
+        color: #E63946;
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: background 250ms ease;
+      }
+      .cta-outline:hover {
+        background: rgba(230,57,70,0.1);
+      }
+      .cta-outline-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(230,57,70,0.5);
+        color: #E63946;
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: background 250ms ease;
+      }
+      .cta-outline-arrow:hover {
+        background: rgba(230,57,70,0.1);
+      }
+
+      /* --- Tool card --- */
+      .tool-card {
+        background: rgba(17,17,17,0.8);
+        backdrop-filter: blur(8px);
+        border-radius: 16px;
+        border: 1px solid rgba(42,42,42,0.5);
+        padding: 1.5rem;
+        transition: border-color 300ms ease, box-shadow 300ms ease;
+      }
+      .tool-card:hover {
+        border-color: rgba(230,57,70,0.3);
+        box-shadow: 0 0 30px rgba(230,57,70,0.06);
+      }
+
+      /* --- Category header --- */
+      .category-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .category-bar {
+        width: 4px;
+        height: 24px;
+        border-radius: 9999px;
+        background: linear-gradient(to bottom, #E63946, #C1121F);
+      }
+
+      /* --- Tech tag --- */
+      .tech-tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        background: #1A1A1A;
+        color: #999999;
+        border: 1px solid rgba(42,42,42,0.5);
+        display: inline-block;
+      }
+
+      /* --- Progress bar --- */
+      .progress-track {
+        width: 100%;
+        height: 4px;
+        background: #1A1A1A;
+        border-radius: 9999px;
+      }
+      .progress-fill {
+        height: 100%;
+        border-radius: 9999px;
+        background: linear-gradient(to right, #E63946, #FF6B6B);
+      }
+
+      /* --- Carousel dots --- */
+      .carousel-dot {
+        width: 32px;
+        height: 32px;
+        border-radius: 9999px;
+        background: rgba(42,42,42,0.6);
+        cursor: pointer;
+        transition: background 300ms ease, transform 300ms ease;
+      }
+      .carousel-dot.active {
+        background: #E63946;
+        transform: scale(1.3);
+      }
+      .carousel-dot:hover:not(.active) {
+        background: rgba(42,42,42,0.9);
+      }
+
+      /* --- Grid pattern --- */
+      .grid-pattern-demo {
+        background-image:
+          linear-gradient(rgba(42,42,42,0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(42,42,42,0.1) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+
+      /* --- Hero glow demo --- */
+      .hero-glow-demo {
+        background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(230,57,70,0.15), transparent);
+      }
+
+      /* --- Gradient text --- */
+      .gradient-text {
+        background: linear-gradient(to right, #F0F0F0, #999999);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* --- Section label --- */
+      .section-label-sm {
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #666666;
+      }
+      .section-label-category {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #E63946;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      /* --- Blockquote --- */
+      .ds-blockquote {
+        border-left: 2px solid rgba(230,57,70,0.5);
+        padding-left: 1.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .ds-blockquote p {
+        font-size: 1rem;
+        color: #999999;
+        font-style: italic;
+        line-height: 1.8;
+      }
+
+      /* --- Contact card --- */
+      .contact-card {
+        display: block;
+        background: rgba(17,17,17,0.8);
+        backdrop-filter: blur(8px);
+        border-radius: 16px;
+        border: 1px solid rgba(42,42,42,0.5);
+        padding: 1.5rem;
+        text-decoration: none;
+        transition: border-color 300ms ease;
+      }
+      .contact-card:hover {
+        border-color: rgba(230,57,70,0.3);
+      }
+
+      /* --- Inline code in descriptions --- */
+      .ds-code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        color: #FF6B6B;
+        background: rgba(230,57,70,0.08);
+        padding: 0.125rem 0.375rem;
+        border-radius: 3px;
+      }
+
+      /* --- TOC --- */
+      .ds-toc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.25rem 2rem;
+      }
+      .ds-toc-grid a {
+        font-size: 0.8125rem;
+        color: #666666;
+        text-decoration: none;
+        padding: 0.25rem 0;
+        transition: color 250ms ease;
+      }
+      .ds-toc-grid a:hover { color: #F0F0F0; }
+      .ds-toc-grid a .toc-num {
+        font-family: 'JetBrains Mono', monospace;
+        color: #E63946;
+        margin-right: 0.5rem;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+
+<!-- ===== LEFT SIDEBAR ===== -->
+<aside class="ds-sidebar">
+  <div class="ds-sidebar-title">UI Components</div>
+  <nav>
+    <a href="#s1">1. Color Palette</a>
+    <a href="#s2">2. Typography</a>
+    <a href="#s3">3. Spacing</a>
+    <a href="#s4">4. Layout & Grid</a>
+    <a href="#s5">5. Shape & Radius</a>
+    <a href="#s6">6. Shadows</a>
+    <a href="#s7">7. Navigation</a>
+    <a href="#s8">8. Page Header</a>
+    <a href="#s9">9. Hero Section</a>
+    <a href="#s10">10. Entry Card</a>
+    <a href="#s11">11. CTA Buttons</a>
+    <a href="#s12">12. Tool Card</a>
+    <a href="#s13">13. Carousel Card</a>
+    <a href="#s14">14. Timeline</a>
+    <a href="#s15">15. Blockquote</a>
+    <a href="#s16">16. Progress Bar</a>
+    <a href="#s17">17. Contact Card</a>
+    <a href="#s18">18. Divider Patterns</a>
+    <a href="#s19">19. Carousel Dots</a>
+    <a href="#s20">20. Section Labels</a>
+    <a href="#s21">21. Animation Table</a>
+    <a href="#s22">22. Event Binding Table</a>
+    <a href="#s23">23. State Flow Matrix</a>
+    <a href="#s24">24. Breakpoints</a>
+    <a href="#s25">25. Template Structure</a>
+    <a href="#s26">26. Grid Pattern</a>
+  </nav>
+</aside>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="ds-main">
+
+  <!-- Page Title -->
+  <h1 style="font-size: 2rem; font-weight: 700; color: #F0F0F0; margin-bottom: 0.25rem;">汤思远 Portfolio</h1>
+  <p style="font-size: 1rem; color: #666666; margin-bottom: 0.5rem;">UI Components & Design System Reference</p>
+  <div style="width: 64px; height: 1px; background: linear-gradient(to right, transparent, rgba(230,57,70,0.5), transparent); margin: 1rem 0 2rem;"></div>
+
+  <!-- Table of Contents -->
+  <div style="margin-bottom: 3rem;">
+    <h2 style="font-size: 0.75rem; color: #E63946; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Table of Contents</h2>
+    <div class="ds-toc-grid">
+      <a href="#s1"><span class="toc-num">01</span>Color Palette</a>
+      <a href="#s2"><span class="toc-num">02</span>Typography</a>
+      <a href="#s3"><span class="toc-num">03</span>Spacing</a>
+      <a href="#s4"><span class="toc-num">04</span>Layout & Grid</a>
+      <a href="#s5"><span class="toc-num">05</span>Shape & Radius</a>
+      <a href="#s6"><span class="toc-num">06</span>Shadows</a>
+      <a href="#s7"><span class="toc-num">07</span>Navigation</a>
+      <a href="#s8"><span class="toc-num">08</span>Page Header</a>
+      <a href="#s9"><span class="toc-num">09</span>Hero Section</a>
+      <a href="#s10"><span class="toc-num">10</span>Entry Card</a>
+      <a href="#s11"><span class="toc-num">11</span>CTA Buttons</a>
+      <a href="#s12"><span class="toc-num">12</span>Tool Card</a>
+      <a href="#s13"><span class="toc-num">13</span>Carousel Card</a>
+      <a href="#s14"><span class="toc-num">14</span>Timeline</a>
+      <a href="#s15"><span class="toc-num">15</span>Blockquote</a>
+      <a href="#s16"><span class="toc-num">16</span>Progress Bar</a>
+      <a href="#s17"><span class="toc-num">17</span>Contact Card</a>
+      <a href="#s18"><span class="toc-num">18</span>Divider Patterns</a>
+      <a href="#s19"><span class="toc-num">19</span>Carousel Dots</a>
+      <a href="#s20"><span class="toc-num">20</span>Section Labels</a>
+      <a href="#s21"><span class="toc-num">21</span>Animation Table</a>
+      <a href="#s22"><span class="toc-num">22</span>Event Binding</a>
+      <a href="#s23"><span class="toc-num">23</span>State Flow Matrix</a>
+      <a href="#s24"><span class="toc-num">24</span>Breakpoints</a>
+      <a href="#s25"><span class="toc-num">25</span>Template Structure</a>
+      <a href="#s26"><span class="toc-num">26</span>Grid Pattern</a>
+    </div>
+  </div>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 1: Color Palette                      -->
+  <!-- ============================================= -->
+  <section id="s1" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">01</div>
+      <h2 class="ds-section-title">Color Palette</h2>
+      <p class="ds-section-desc">Complete color system including primary shades, backgrounds, surfaces, borders, text levels, and semantic state colors.</p>
+    </div>
+
+    <!-- Primary Colors -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Primary</h3>
+    <div class="swatch-grid" style="margin-bottom: 1.5rem;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #E63946;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-primary</div>
+          <div class="swatch-hex">#E63946</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #FF6B6B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-primary-light</div>
+          <div class="swatch-hex">#FF6B6B</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #C1121F;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-primary-dark</div>
+          <div class="swatch-hex">#C1121F</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background & Surface -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Background & Surface</h3>
+    <div class="swatch-grid" style="margin-bottom: 1.5rem;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #0A0A0A; border-bottom: 1px solid #2A2A2A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-background</div>
+          <div class="swatch-hex">#0A0A0A</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #111111;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-surface</div>
+          <div class="swatch-hex">#111111</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #1A1A1A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-surface-elevated</div>
+          <div class="swatch-hex">#1A1A1A</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Border -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Border</h3>
+    <div class="swatch-grid" style="margin-bottom: 1.5rem;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #2A2A2A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-border</div>
+          <div class="swatch-hex">#2A2A2A</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #1E1E1E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-border-subtle</div>
+          <div class="swatch-hex">#1E1E1E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Text</h3>
+    <div class="swatch-grid" style="margin-bottom: 1.5rem;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #F0F0F0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-text-primary</div>
+          <div class="swatch-hex">#F0F0F0</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #999999;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-text-secondary</div>
+          <div class="swatch-hex">#999999</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #666666;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--color-text-tertiary</div>
+          <div class="swatch-hex">#666666</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- State Colors -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">State / Semantic</h3>
+    <div class="swatch-grid" style="margin-bottom: 1.5rem;">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #22C55E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--state-success</div>
+          <div class="swatch-hex">#22C55E</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #F59E0B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--state-warning</div>
+          <div class="swatch-hex">#F59E0B</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #EF4444;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--state-error</div>
+          <div class="swatch-hex">#EF4444</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #3B82F6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">--state-info</div>
+          <div class="swatch-hex">#3B82F6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Derived Colors -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Derived Colors (Common RGBA)</h3>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(42,42,42,0.5);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Border card</div>
+          <div class="swatch-hex">rgba(42,42,42,0.5)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(230,57,70,0.4);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Glow accent</div>
+          <div class="swatch-hex">rgba(230,57,70,0.4)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(10,10,10,0.6);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Nav bg</div>
+          <div class="swatch-hex">rgba(10,10,10,0.6)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(230,57,70,0.3);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Border hover</div>
+          <div class="swatch-hex">rgba(230,57,70,0.3)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(230,57,70,0.5);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Divider / accent</div>
+          <div class="swatch-hex">rgba(230,57,70,0.5)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(230,57,70,0.15);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Aurora glow</div>
+          <div class="swatch-hex">rgba(230,57,70,0.15)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(230,57,70,0.1);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Outline CTA hover</div>
+          <div class="swatch-hex">rgba(230,57,70,0.1)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: rgba(30,30,30,0.5);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Nav border</div>
+          <div class="swatch-hex">rgba(30,30,30,0.5)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 2: Typography                          -->
+  <!-- ============================================= -->
+  <section id="s2" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">02</div>
+      <h2 class="ds-section-title">Typography Scale</h2>
+      <p class="ds-section-desc">Type sizes, weights, line-heights, letter-spacings, and font families used across the project.</p>
+    </div>
+
+    <!-- Type Scale -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Type Sizes</h3>
+    <div class="demo-box">
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 4.5rem; font-weight: 700; color: #F0F0F0; line-height: 1.25;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">5xl &mdash; 4.5rem &mdash; var(--text-size-5xl)</div>
+      </div>
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 3.5rem; font-weight: 700; color: #F0F0F0; line-height: 1.25;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">4xl &mdash; 3.5rem &mdash; var(--text-size-4xl)</div>
+      </div>
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 2.5rem; font-weight: 700; color: #F0F0F0; line-height: 1.25;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">3xl &mdash; 2.5rem &mdash; var(--text-size-3xl)</div>
+      </div>
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 2rem; font-weight: 700; color: #F0F0F0; line-height: 1.25;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">2xl &mdash; 2rem &mdash; var(--text-size-2xl)</div>
+      </div>
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 1.5rem; font-weight: 700; color: #F0F0F0; line-height: 1.25;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">xl &mdash; 1.5rem &mdash; var(--text-size-xl)</div>
+      </div>
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 1.125rem; font-weight: 700; color: #F0F0F0; line-height: 1.5;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">lg &mdash; 1.125rem &mdash; var(--text-size-lg)</div>
+      </div>
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 1rem; font-weight: 700; color: #F0F0F0; line-height: 1.5;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">base &mdash; 1rem &mdash; var(--text-size-base)</div>
+      </div>
+      <div style="margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <span style="font-size: 0.875rem; font-weight: 700; color: #F0F0F0; line-height: 1.5;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">sm &mdash; 0.875rem &mdash; var(--text-size-sm)</div>
+      </div>
+      <div>
+        <span style="font-size: 0.75rem; font-weight: 700; color: #F0F0F0; line-height: 1.5;">汤思远 Aa</span>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.25rem;">xs &mdash; 0.75rem &mdash; var(--text-size-xs)</div>
+      </div>
+    </div>
+
+    <!-- Font Weights -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 2rem;">Font Weights</h3>
+    <div class="demo-box">
+      <div style="margin-bottom: 0.75rem;">
+        <span style="font-size: 1.25rem; font-weight: 400; color: #F0F0F0;">汤思远 Aa &mdash; 400 Regular</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-left: 1rem;">--font-weight-regular</span>
+      </div>
+      <div style="margin-bottom: 0.75rem;">
+        <span style="font-size: 1.25rem; font-weight: 500; color: #F0F0F0;">汤思远 Aa &mdash; 500 Medium</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-left: 1rem;">--font-weight-medium</span>
+      </div>
+      <div style="margin-bottom: 0.75rem;">
+        <span style="font-size: 1.25rem; font-weight: 600; color: #F0F0F0;">汤思远 Aa &mdash; 600 Semibold</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-left: 1rem;">--font-weight-semibold</span>
+      </div>
+      <div>
+        <span style="font-size: 1.25rem; font-weight: 700; color: #F0F0F0;">汤思远 Aa &mdash; 700 Bold</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-left: 1rem;">--font-weight-bold</span>
+      </div>
+    </div>
+
+    <!-- Line Heights -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 2rem;">Line Heights</h3>
+    <div class="demo-box">
+      <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <div style="font-size: 1rem; color: #F0F0F0; line-height: 1.25; margin-bottom: 0.25rem;">汤思远正在使用AI工具重新定义个人效率。技术改变工作方式。</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Tight &mdash; 1.25 &mdash; --leading-tight</div>
+      </div>
+      <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <div style="font-size: 1rem; color: #F0F0F0; line-height: 1.5; margin-bottom: 0.25rem;">汤思远正在使用AI工具重新定义个人效率。技术改变工作方式。</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Normal &mdash; 1.5 &mdash; --leading-normal</div>
+      </div>
+      <div>
+        <div style="font-size: 1rem; color: #F0F0F0; line-height: 1.625; margin-bottom: 0.25rem;">汤思远正在使用AI工具重新定义个人效率。技术改变工作方式。</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Relaxed &mdash; 1.625 &mdash; --leading-relaxed</div>
+      </div>
+    </div>
+
+    <!-- Letter Spacings -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 2rem;">Letter Spacings</h3>
+    <div class="demo-box">
+      <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <div style="font-size: 1.25rem; color: #F0F0F0; letter-spacing: -0.02em; margin-bottom: 0.25rem;">汤思远正在使用AI工具</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Tight &mdash; -0.02em &mdash; --tracking-tight</div>
+      </div>
+      <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <div style="font-size: 1.25rem; color: #F0F0F0; letter-spacing: 0em; margin-bottom: 0.25rem;">汤思远正在使用AI工具</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Normal &mdash; 0em &mdash; --tracking-normal</div>
+      </div>
+      <div>
+        <div style="font-size: 1.25rem; color: #F0F0F0; letter-spacing: 0.02em; margin-bottom: 0.25rem;">汤思远正在使用AI工具</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Wide &mdash; 0.02em &mdash; --tracking-wide</div>
+      </div>
+    </div>
+
+    <!-- Font Families -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 2rem;">Font Families</h3>
+    <div class="demo-box">
+      <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(42,42,42,0.3);">
+        <div style="font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif; font-size: 1.25rem; color: #F0F0F0; margin-bottom: 0.25rem;">汤思远 Aa Bb Cc &mdash; Display & Body</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">--font-display / --font-body: 'Inter', 'Noto Sans SC', system-ui, sans-serif</div>
+      </div>
+      <div>
+        <div style="font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace; font-size: 1.25rem; color: #F0F0F0; margin-bottom: 0.25rem;">汤思远 Aa Bb Cc 0123 {}</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">--font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 3: Spacing                            -->
+  <!-- ============================================= -->
+  <section id="s3" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">03</div>
+      <h2 class="ds-section-title">Spacing Scale</h2>
+      <p class="ds-section-desc">Visual representation of all spacing tokens from space-1 to space-24.</p>
+    </div>
+    <div class="demo-box">
+      <div class="spacing-bar" style="width: 4px;"><span class="spacing-bar-label">1 &mdash; 0.25rem (4px)</span></div>
+      <div class="spacing-bar" style="width: 8px;"><span class="spacing-bar-label">2 &mdash; 0.5rem (8px)</span></div>
+      <div class="spacing-bar" style="width: 12px;"><span class="spacing-bar-label">3 &mdash; 0.75rem (12px)</span></div>
+      <div class="spacing-bar" style="width: 16px;"><span class="spacing-bar-label">4 &mdash; 1rem (16px)</span></div>
+      <div class="spacing-bar" style="width: 20px;"><span class="spacing-bar-label">5 &mdash; 1.25rem (20px)</span></div>
+      <div class="spacing-bar" style="width: 24px;"><span class="spacing-bar-label">6 &mdash; 1.5rem (24px)</span></div>
+      <div class="spacing-bar" style="width: 32px;"><span class="spacing-bar-label">8 &mdash; 2rem (32px)</span></div>
+      <div class="spacing-bar" style="width: 40px;"><span class="spacing-bar-label">10 &mdash; 2.5rem (40px)</span></div>
+      <div class="spacing-bar" style="width: 48px;"><span class="spacing-bar-label">12 &mdash; 3rem (48px)</span></div>
+      <div class="spacing-bar" style="width: 64px;"><span class="spacing-bar-label">16 &mdash; 4rem (64px)</span></div>
+      <div class="spacing-bar" style="width: 80px;"><span class="spacing-bar-label">20 &mdash; 5rem (80px)</span></div>
+      <div class="spacing-bar" style="width: 96px;"><span class="spacing-bar-label">24 &mdash; 6rem (96px)</span></div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 4: Layout & Grid                      -->
+  <!-- ============================================= -->
+  <section id="s4" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">04</div>
+      <h2 class="ds-section-title">Layout & Grid</h2>
+      <p class="ds-section-desc">Container max-width, content columns, and grid patterns used across pages.</p>
+    </div>
+
+    <!-- Container Demo -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Container: 1700px max + 2rem padding</h3>
+    <div class="demo-box" style="position: relative; padding: 0; overflow: hidden;">
+      <div style="max-width: 100%; margin: 0 auto; padding: 1rem 2rem; border: 1px dashed rgba(230,57,70,0.4); background: rgba(230,57,70,0.04); border-radius: 8px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #E63946;">max-width: 1700px &middot; padding: 2rem (var(--container-padding))</div>
+        <div style="font-size: 0.75rem; color: #999999; margin-top: 0.25rem;">Content area with horizontal padding on both sides</div>
+      </div>
+    </div>
+
+    <!-- Content Column Demo -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Content Columns</h3>
+    <div class="demo-box" style="padding: 0; overflow: hidden;">
+      <div style="max-width: 100%; padding: 1rem; border: 1px dashed rgba(42,42,42,0.5);">
+        <!-- Centered narrow -->
+        <div style="max-width: 42rem; margin: 0 auto; padding: 1rem; border: 1px dashed rgba(230,57,70,0.3); background: rgba(230,57,70,0.03); border-radius: 8px; margin-bottom: 0.75rem;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #E63946;">max-w-2xl (672px) &mdash; centered</div>
+          <div style="font-size: 0.75rem; color: #999999;">Used in: About, Now pages (reading content)</div>
+        </div>
+        <!-- Full width -->
+        <div style="padding: 1rem; border: 1px dashed rgba(230,57,70,0.3); background: rgba(230,57,70,0.03); border-radius: 8px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #E63946;">max-w-[1400px] &mdash; full width</div>
+          <div style="font-size: 0.75rem; color: #999999;">Used in: Works, AI Tools pages (grid content)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid Demos -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">2x2 Grid (Entry Cards)</h3>
+    <div class="demo-box">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 1</div>
+        </div>
+        <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 2</div>
+        </div>
+        <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 3</div>
+        </div>
+        <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 4</div>
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6</div>
+    </div>
+
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">3-Column Grid (Tool Cards)</h3>
+    <div class="demo-box">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+        <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 16px; padding: 1.25rem;">
+          <div style="font-size: 0.8125rem; color: #F0F0F0;">Card 1</div>
+        </div>
+        <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 16px; padding: 1.25rem;">
+          <div style="font-size: 0.8125rem; color: #F0F0F0;">Card 2</div>
+        </div>
+        <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 16px; padding: 1.25rem;">
+          <div style="font-size: 0.8125rem; color: #F0F0F0;">Card 3</div>
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">grid grid-cols-1 md:grid-cols-3 gap-5</div>
+    </div>
+
+    <!-- Responsive Breakpoints Summary -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Responsive Breakpoints</h3>
+    <div class="demo-box">
+      <table class="ds-table">
+        <thead>
+          <tr><th>Breakpoint</th><th>Width</th><th>Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>sm</code></td><td>640px</td><td>Entry cards: 1 &rarr; 2 columns</td></tr>
+          <tr><td><code>md</code></td><td>768px</td><td>Tool cards: 2-3 columns</td></tr>
+          <tr><td><code>lg</code></td><td>1024px</td><td>Entry cards: 2 &rarr; 4 columns</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem; font-style: italic;">Note: Site is PC-first, minimal mobile optimization.</div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 5: Shape & Radius                     -->
+  <!-- ============================================= -->
+  <section id="s5" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">05</div>
+      <h2 class="ds-section-title">Shape & Radius</h2>
+      <p class="ds-section-desc">All border-radius values used in the design system.</p>
+    </div>
+    <div class="demo-box">
+      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-end;">
+        <div style="text-align: center;">
+          <div style="width: 80px; height: 80px; border: 1px solid #2A2A2A; background: rgba(17,17,17,0.8); border-radius: 4px;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">sm &mdash; 4px</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 80px; height: 80px; border: 1px solid #2A2A2A; background: rgba(17,17,17,0.8); border-radius: 8px;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">md &mdash; 8px</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 80px; height: 80px; border: 1px solid #2A2A2A; background: rgba(17,17,17,0.8); border-radius: 12px;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">lg &mdash; 12px</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 80px; height: 80px; border: 1px solid #2A2A2A; background: rgba(17,17,17,0.8); border-radius: 16px;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">xl &mdash; 16px</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 80px; height: 80px; border: 1px solid #2A2A2A; background: rgba(17,17,17,0.8); border-radius: 9999px;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">full &mdash; 9999px</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 6: Shadows                            -->
+  <!-- ============================================= -->
+  <section id="s6" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">06</div>
+      <h2 class="ds-section-title">Shadows</h2>
+      <p class="ds-section-desc">Shadow depth levels. Note: on dark backgrounds these are very subtle.</p>
+    </div>
+    <div class="demo-box">
+      <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div style="width: 140px; height: 80px; background: #1A1A1A; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); border: 1px solid rgba(42,42,42,0.3);"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">--shadow-sm</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #666666;">0 1px 2px rgba(0,0,0,0.04)</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 140px; height: 80px; background: #1A1A1A; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.04); border: 1px solid rgba(42,42,42,0.3);"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">--shadow-md</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #666666;">0 4px 8px rgba(0,0,0,0.04)</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="width: 140px; height: 80px; background: #1A1A1A; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); border: 1px solid rgba(42,42,42,0.3);"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">--shadow-lg</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #666666;">0 8px 24px rgba(0,0,0,0.05)</div>
+        </div>
+      </div>
+      <div style="font-size: 0.75rem; color: #666666; margin-top: 1rem; font-style: italic;">Note: Shadows are barely visible on dark backgrounds. Glow effects (box-shadow with primary color) are used instead for depth emphasis.</div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 7: Navigation Bar                     -->
+  <!-- ============================================= -->
+  <section id="s7" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">07</div>
+      <h2 class="ds-section-title">Navigation Bar</h2>
+      <p class="ds-section-desc">Fixed top navigation with frosted glass effect. Background: rgba(10,10,10,0.6) with backdrop-blur-sm, border-bottom rgba(30,30,30,0.5).</p>
+    </div>
+
+    <!-- Full Demo -->
+    <div style="border: 1px solid rgba(42,42,42,0.5); border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+      <div style="background: rgba(10,10,10,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(30,30,30,0.5); padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="#" style="font-size: 0.875rem; font-weight: 500; color: #F0F0F0; text-decoration: none;">汤思远</a>
+        <div class="nav-state-demo">
+          <a href="#" class="state-active">首页</a>
+          <a href="#">作品</a>
+          <a href="#">AI工具</a>
+          <a href="#">关于</a>
+          <a href="#">Now</a>
+          <a href="#">联系</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- States Demo -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Nav Link States</h3>
+    <div class="demo-box">
+      <div class="nav-state-demo" style="margin-bottom: 0.5rem;">
+        <a href="#">Default (#666666)</a>
+        <a href="#" style="color: #F0F0F0;">Hover (#F0F0F0)</a>
+        <a href="#" class="state-active">Active (#999999)</a>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">
+        Default: color #666666 | Hover: color #F0F0F0 | Active: color #999999 | Transition: color 250ms ease
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 8: Page Header Pattern                -->
+  <!-- ============================================= -->
+  <section id="s8" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">08</div>
+      <h2 class="ds-section-title">Page Header Pattern</h2>
+      <p class="ds-section-desc">Standard page header: small uppercase label + large bold title + subtitle + gradient divider.</p>
+    </div>
+    <div class="demo-box">
+      <p class="section-label-sm" style="margin-bottom: 1rem;">PROJECTS</p>
+      <h2 style="font-size: 2rem; font-weight: 700; color: #F0F0F0; letter-spacing: -0.02em; margin-bottom: 1rem;">我的作品</h2>
+      <p style="font-size: 1.125rem; color: #999999;">我开发过的项目</p>
+      <div style="width: 64px; height: 1px; background: linear-gradient(to right, transparent, rgba(230,57,70,0.5), transparent); margin-top: 2rem;"></div>
+    </div>
+
+    <!-- Gradient Divider Detail -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Gradient Divider</h3>
+    <div class="demo-box">
+      <div style="width: 64px; height: 1px; background: linear-gradient(to right, transparent, rgba(230,57,70,0.5), transparent); margin-bottom: 0.75rem;"></div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">
+        w-16 h-px bg-gradient-to-r from-transparent via-[#E63946]/50 to-transparent
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 9: Hero Section Components             -->
+  <!-- ============================================= -->
+  <section id="s9" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">09</div>
+      <h2 class="ds-section-title">Hero Section Components</h2>
+      <p class="ds-section-desc">Aurora glow background, gradient text effect, avatar, and uppercase label.</p>
+    </div>
+
+    <!-- Aurora Glow -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Aurora Glow</h3>
+    <div style="border: 1px solid rgba(42,42,42,0.5); border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; height: 200px; position: relative;">
+      <div class="hero-glow-demo" style="position: absolute; inset: 0; width: 100%;"></div>
+      <div style="position: absolute; bottom: 0.75rem; left: 0.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #666666; z-index: 1;">
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(230,57,70,0.15), transparent)
+      </div>
+    </div>
+
+    <!-- Gradient Text -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Gradient Text</h3>
+    <div class="demo-box" style="margin-bottom: 1.5rem;">
+      <span class="gradient-text" style="font-size: 2.5rem; font-weight: 700;">汤思远</span>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">
+        background: linear-gradient(to right, #F0F0F0, #999999); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      </div>
+    </div>
+
+    <!-- Avatar -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Avatar</h3>
+    <div class="demo-box" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+      <div style="width: 120px; height: 120px; border-radius: 16px; border: 1px solid #2A2A2A; box-shadow: 0 0 40px rgba(230,57,70,0.1); background: #1A1A1A; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+      </div>
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; line-height: 1.8;">
+          w-[120px] h-[120px] rounded-2xl<br>
+          border: 1px solid #2A2A2A<br>
+          box-shadow: 0 0 40px rgba(230,57,70,0.1)
+        </div>
+      </div>
+    </div>
+
+    <!-- Uppercase Label -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Uppercase Label</h3>
+    <div class="demo-box">
+      <p class="section-label-sm">Product Manager & AI Explorer</p>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.5rem;">
+        text-xs tracking-[0.2em] uppercase color #666666
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 10: Entry Card Component               -->
+  <!-- ============================================= -->
+  <section id="s10" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">10</div>
+      <h2 class="ds-section-title">Entry Card Component</h2>
+      <p class="ds-section-desc">The main navigation entry card used on the homepage. Features border glow effect on hover.</p>
+    </div>
+
+    <!-- Regular Entry Card -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Default Entry Card</h3>
+    <div class="demo-box">
+      <div style="max-width: 280px;">
+        <a href="#" class="entry-card" style="cursor: pointer;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E63946" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <h3 style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.5rem;">我的作品</h3>
+          <p style="font-size: 0.875rem; color: #666666; line-height: 1.625;">查看我开发过的项目</p>
+        </a>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem;">
+        bg rgba(17,17,17,0.8) | backdrop-filter blur(8px) | border-radius 1rem | border 1px solid rgba(42,42,42,0.5) | padding 2rem
+      </div>
+    </div>
+
+    <!-- Border Glow Card (Interactive) -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Border Glow Effect (Interactive)</h3>
+    <div class="demo-box">
+      <div style="max-width: 280px;">
+        <a href="#" class="entry-card border-glow-card" id="glow-demo-card" style="cursor: pointer;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E63946" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3Z"/><path d="M18 12l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3Z"/><path d="M6 18l.75 2.25L9 21l-2.25.75L6 24l-.75-2.25L3 21l2.25-.75L6 18Z"/></svg>
+          <h3 style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.5rem;">AI工具心得</h3>
+          <p style="font-size: 0.875rem; color: #666666; line-height: 1.625;">收藏和使用的AI工具</p>
+        </a>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem;">
+        Hover the card to see border glow. Uses ::before with radial-gradient following mouse position + mask-composite: exclude.
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #444444; margin-top: 0.5rem; line-height: 1.6;">
+        CSS: ::before pseudo-element<br>
+        radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(230,57,70,0.4), transparent 40%)<br>
+        mask-composite: exclude<br>
+        opacity: 0 (default) / 1 (hover)<br>
+        JS: mousemove sets --mouse-x, --mouse-y CSS custom properties
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 11: CTA Buttons                      -->
+  <!-- ============================================= -->
+  <section id="s11" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">11</div>
+      <h2 class="ds-section-title">CTA Buttons</h2>
+      <p class="ds-section-desc">Primary solid, outline, and outline-with-arrow button variants.</p>
+    </div>
+
+    <div class="demo-box">
+      <!-- Primary CTA -->
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.75rem;">Primary CTA</h3>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <a href="#" class="cta-primary" style="cursor: pointer;">探索我的作品</a>
+          <a href="#" class="cta-primary" style="cursor: pointer; background: #C1121F; box-shadow: 0 0 24px rgba(230,57,70,0.25);">Hover State</a>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">
+          Default: bg #E63946 | Hover: bg #C1121F + box-shadow 0 0 24px rgba(230,57,70,0.25)
+        </div>
+      </div>
+
+      <!-- Outline CTA -->
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.75rem;">Outline CTA</h3>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <a href="#" class="cta-outline" style="cursor: pointer;">查看AI工具心得</a>
+          <a href="#" class="cta-outline" style="cursor: pointer; background: rgba(230,57,70,0.1);">Hover State</a>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">
+          Default: border 1px solid rgba(230,57,70,0.5) | Hover: bg rgba(230,57,70,0.1)
+        </div>
+      </div>
+
+      <!-- Outline CTA with Arrow -->
+      <div>
+        <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.75rem;">Outline CTA with Arrow</h3>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <a href="#" class="cta-outline-arrow" style="cursor: pointer;">
+            了解我的经历
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="cta-outline-arrow" style="cursor: pointer; background: rgba(230,57,70,0.1);">Hover State</a>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">
+          Same as outline + right arrow SVG + gap-2
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Spec -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Button Specification</h3>
+    <table class="ds-table">
+      <thead>
+        <tr><th>Property</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>font-size</td><td>0.875rem</td></tr>
+        <tr><td>font-weight</td><td>500</td></tr>
+        <tr><td>padding</td><td>0.875rem 2rem</td></tr>
+        <tr><td>border-radius</td><td>9999px</td></tr>
+        <tr><td>transition</td><td>background 250ms ease, box-shadow 250ms ease</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 12: Tool/Content Card                  -->
+  <!-- ============================================= -->
+  <section id="s12" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">12</div>
+      <h2 class="ds-section-title">Tool / Content Card</h2>
+      <p class="ds-section-desc">Card used on AI tools page. Includes category header pattern.</p>
+    </div>
+
+    <!-- Category Header -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Category Header</h3>
+    <div class="demo-box" style="margin-bottom: 1.5rem;">
+      <div class="category-header">
+        <div class="category-bar"></div>
+        <h2 style="font-size: 1.25rem; font-weight: 600; color: #F0F0F0;">AI 聊天</h2>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">
+        Gradient bar: w-1 h-6 rounded-full bg-gradient-to-b from #E63946 to #C1121F
+      </div>
+    </div>
+
+    <!-- Tool Cards Grid -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Tool Cards (Default & Hover)</h3>
+    <div class="demo-box">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+        <div class="tool-card">
+          <h3 style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">ChatGPT</h3>
+          <p style="font-size: 0.875rem; color: #999999; line-height: 1.625; font-style: italic;">"日常思考和代码辅助，用得最多的AI。"</p>
+        </div>
+        <div class="tool-card" style="border-color: rgba(230,57,70,0.3); box-shadow: 0 0 30px rgba(230,57,70,0.06);">
+          <h3 style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Claude</h3>
+          <p style="font-size: 0.875rem; color: #999999; line-height: 1.625; font-style: italic;">"Hover State"</p>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #E63946; margin-top: 0.5rem;">border-color: rgba(230,57,70,0.3)</div>
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">
+        bg rgba(17,17,17,0.8) | backdrop-blur-sm | rounded-2xl | border border rgba(42,42,42,0.5) | p-6<br>
+        Hover: border-color rgba(230,57,70,0.3) | box-shadow 0 0 30px rgba(230,57,70,0.06)
+      </div>
+    </div>
+
+    <!-- Tool Card with Border Glow -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Border Glow Variant</h3>
+    <div class="demo-box">
+      <div style="max-width: 280px;">
+        <div class="tool-card border-glow-card" id="glow-tool-card">
+          <h3 style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Dify</h3>
+          <p style="font-size: 0.875rem; color: #999999; line-height: 1.625; font-style: italic;">"搭建AI Agent工作流的首选平台。"</p>
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">Hover to see border glow. Same technique as entry card.</div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 13: Carousel Card (3D Gallery)         -->
+  <!-- ============================================= -->
+  <section id="s13" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">13</div>
+      <h2 class="ds-section-title">Carousel Card (3D Gallery)</h2>
+      <p class="ds-section-desc">The 380x480px card used in the 3D carousel gallery. Static demo shown.</p>
+    </div>
+    <div class="demo-box">
+      <div style="width: 380px; background: #111111; border: 1px solid rgba(42,42,42,0.6); border-radius: 16px; overflow: hidden;">
+        <!-- Card Image Area -->
+        <div class="grid-pattern-demo" style="height: 200px; background: linear-gradient(135deg, #1A1A1A, #111111); display: flex; align-items: center; justify-content: center;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <!-- Card Body -->
+        <div style="padding: 1.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.5rem;">AI学习整理器</h3>
+          <p style="font-size: 0.875rem; color: #999999; line-height: 1.625; margin-bottom: 0.5rem;">帮助整理和总结AI学习笔记的智能工具</p>
+          <p style="font-size: 0.875rem; color: #666666; font-style: italic; margin-bottom: 0.75rem;">&rarr; 日常学习产生大量笔记，需要系统化整理</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">FastAPI</span>
+          </div>
+          <div style="display: flex; gap: 1rem; padding-top: 1rem; border-top: 1px solid rgba(42,42,42,0.3);">
+            <a href="#" style="font-size: 0.875rem; color: #E63946; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub
+            </a>
+            <a href="#" style="font-size: 0.875rem; color: #E63946; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Component Details -->
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        Card: 380x480px | bg #111111 | border 1px solid rgba(42,42,42,0.6) | border-radius 16px<br>
+        Image: 200px height | linear-gradient(135deg, #1A1A1A, #111111) + grid pattern<br>
+        Body: padding 1.5rem<br>
+        Tech Tag: text-xs px-3 py-1 rounded-full | bg #1A1A1A | color #999999 | border 1px solid rgba(42,42,42,0.5)<br>
+        Action Link: text-sm color #E63946 hover:underline
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 14: Timeline Component                -->
+  <!-- ============================================= -->
+  <section id="s14" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">14</div>
+      <h2 class="ds-section-title">Timeline Component</h2>
+      <p class="ds-section-desc">Vertical timeline with colored dots and date column, used in the About page.</p>
+    </div>
+    <div class="demo-box">
+      <div class="relative" style="padding-left: 1.5rem;">
+        <!-- Vertical line -->
+        <div style="position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: #2A2A2A;"></div>
+
+        <!-- Entry 1 -->
+        <div style="display: flex; margin-bottom: 2rem; position: relative;">
+          <div style="width: 128px; flex-shrink: 0; font-size: 0.875rem; color: #666666;">2024 - 至今</div>
+          <div style="position: absolute; left: -1.5rem; top: 7px; width: 8px; height: 8px; border-radius: 9999px; background: #E63946;"></div>
+          <div style="font-size: 1rem; color: #F0F0F0; font-weight: 500;">AI应用开发与产品探索</div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div style="display: flex; margin-bottom: 2rem; position: relative;">
+          <div style="width: 128px; flex-shrink: 0; font-size: 0.875rem; color: #666666;">2022 - 2024</div>
+          <div style="position: absolute; left: -1.5rem; top: 7px; width: 8px; height: 8px; border-radius: 9999px; background: #E63946;"></div>
+          <div style="font-size: 1rem; color: #F0F0F0; font-weight: 500;">产品经理，关注效率工具与用户体验</div>
+        </div>
+
+        <!-- Entry 3 -->
+        <div style="display: flex; position: relative;">
+          <div style="width: 128px; flex-shrink: 0; font-size: 0.875rem; color: #666666;">2020 - 2022</div>
+          <div style="position: absolute; left: -1.5rem; top: 7px; width: 8px; height: 8px; border-radius: 9999px; background: #E63946;"></div>
+          <div style="font-size: 1rem; color: #F0F0F0; font-weight: 500;">从零开始学习编程和AI技术</div>
+        </div>
+      </div>
+
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        Vertical line: absolute left-[7px] top-2 bottom-2 w-px bg #2A2A2A<br>
+        Timeline dot: w-2 h-2 rounded-full bg #E63946<br>
+        Date column: w-32 shrink-0 text-sm text #666666<br>
+        Content: text-base text #F0F0F0 font-medium
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 15: Blockquote                         -->
+  <!-- ============================================= -->
+  <section id="s15" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">15</div>
+      <h2 class="ds-section-title">Blockquote</h2>
+      <p class="ds-section-desc">Styled blockquote with left border accent.</p>
+    </div>
+    <div class="demo-box">
+      <blockquote class="ds-blockquote">
+        <p>我相信 AI 是下一个时代的基础设施。不是因为它很酷，而是因为它确实能让人做事的效率提升一个量级。我想成为那些不仅使用 AI，还能用 AI 创造价值的人。</p>
+      </blockquote>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem;">
+        border-left: 2px border rgba(230,57,70,0.5) | pl-6 py-2 | text-base text #999999 italic leading-[1.8]
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 16: Progress Bar                      -->
+  <!-- ============================================= -->
+  <section id="s16" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">16</div>
+      <h2 class="ds-section-title">Progress Bar</h2>
+      <p class="ds-section-desc">Gradient-filled progress indicator used in Now page.</p>
+    </div>
+    <div class="demo-box">
+      <!-- 20% -->
+      <div style="margin-bottom: 1.25rem;">
+        <div style="font-size: 0.75rem; color: #666666; margin-bottom: 0.5rem;">20%</div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 20%;"></div>
+        </div>
+      </div>
+      <!-- 60% -->
+      <div style="margin-bottom: 1.25rem;">
+        <div style="font-size: 0.75rem; color: #666666; margin-bottom: 0.5rem;">60%</div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 60%;"></div>
+        </div>
+      </div>
+      <!-- 100% -->
+      <div>
+        <div style="font-size: 0.75rem; color: #666666; margin-bottom: 0.5rem;">100%</div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        Track: w-full h-1 bg #1A1A1A rounded-full<br>
+        Fill: w-3/5 h-full bg-gradient-to-r from #E63946 to #FF6B6B rounded-full
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 17: Contact Card                      -->
+  <!-- ============================================= -->
+  <section id="s17" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">17</div>
+      <h2 class="ds-section-title">Contact Card</h2>
+      <p class="ds-section-desc">Full contact card with icon box and two-line text layout.</p>
+    </div>
+    <div class="demo-box">
+      <div style="max-width: 400px;">
+        <!-- Default state -->
+        <a href="#" class="contact-card" style="display: block; margin-bottom: 1rem;">
+          <div style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="width: 48px; height: 48px; border-radius: 12px; background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E63946" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 3C4.9 3 2 5.5 2 8.5c0 1.7.8 3.2 2.1 4.3L3.5 15l2.5-1c1 .4 1.7.5 2.5.5.3 0 .5 0 .8 0"/><path d="M15.5 6C19.1 6 22 8.5 22 11.5c0 1.7-.8 3.2-2.1 4.3L20.5 18l-2.5-1c-1 .4-1.7.5-2.5.5-3.6 0-6.5-2.5-6.5-5.5S11.9 6 15.5 6Z"/></svg>
+            </div>
+            <div>
+              <p style="font-size: 0.875rem; color: #666666; margin-bottom: 0.25rem;">微信 / WeChat</p>
+              <p style="font-size: 1.125rem; font-weight: 500; color: #F0F0F0;">Siyuan_Tang</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Hover state -->
+        <a href="#" class="contact-card" style="display: block; border-color: rgba(230,57,70,0.3);">
+          <div style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="width: 48px; height: 48px; border-radius: 12px; background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E63946" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            </div>
+            <div>
+              <p style="font-size: 0.875rem; color: #666666; margin-bottom: 0.25rem;">邮箱 / Email</p>
+              <p style="font-size: 1.125rem; font-weight: 500; color: #F0F0F0;">siyuan@example.com</p>
+            </div>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #E63946; margin-top: 0.5rem;">Hover state: border-color rgba(230,57,70,0.3)</div>
+        </a>
+      </div>
+
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        bg rgba(17,17,17,0.8) | backdrop-blur-sm | rounded-2xl | border border rgba(42,42,42,0.5) | p-6<br>
+        Icon box: w-12 h-12 rounded-xl bg #1A1A1A | SVG icon in #E63946<br>
+        Label: text-sm color #666666 | Value: text-lg font-medium color #F0F0F0<br>
+        Hover: border-color rgba(230,57,70,0.3) | transition 300ms ease
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 18: Divider Patterns                   -->
+  <!-- ============================================= -->
+  <section id="s18" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">18</div>
+      <h2 class="ds-section-title">Divider Patterns</h2>
+      <p class="ds-section-desc">Two gradient divider variants used across the site.</p>
+    </div>
+    <div class="demo-box">
+      <!-- Short gradient divider -->
+      <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.75rem;">Short Gradient Divider (Page Header)</h3>
+      <div style="width: 64px; height: 1px; background: linear-gradient(to right, transparent, rgba(230,57,70,0.5), transparent); margin-bottom: 0.5rem;"></div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-bottom: 1.5rem;">
+        w-16 h-px bg-gradient-to-r from-transparent via rgba(230,57,70,0.5) to-transparent
+      </div>
+
+      <!-- Full width section divider -->
+      <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.75rem;">Full Width Section Divider</h3>
+      <div style="width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(230,57,70,0.3), transparent); margin-bottom: 0.5rem;"></div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">
+        w-full h-px bg-gradient-to-r from-transparent via rgba(230,57,70,0.3) to-transparent
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 19: Carousel Dots                     -->
+  <!-- ============================================= -->
+  <section id="s19" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">19</div>
+      <h2 class="ds-section-title">Carousel Dots</h2>
+      <p class="ds-section-desc">Navigation dots for the 3D carousel gallery.</p>
+    </div>
+    <div class="demo-box">
+      <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        Default: w-8 h-8 rounded-full bg rgba(42,42,42,0.6)<br>
+        Active: bg #E63946 transform scale(1.3)<br>
+        Transition: background 300ms ease, transform 300ms ease
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 20: Section Label                     -->
+  <!-- ============================================= -->
+  <section id="s20" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">20</div>
+      <h2 class="ds-section-title">Section Labels</h2>
+      <p class="ds-section-desc">Two label styles: small uppercase and category accent.</p>
+    </div>
+    <div class="demo-box">
+      <!-- Small uppercase -->
+      <div style="margin-bottom: 1.25rem;">
+        <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.5rem;">Small Uppercase Label</h3>
+        <p class="section-label-sm">PROJECTS</p>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.375rem;">
+          text-xs tracking-[0.2em] uppercase color #666666
+        </div>
+      </div>
+
+      <!-- Category label -->
+      <div>
+        <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.5rem;">Category Label</h3>
+        <p class="section-label-category">WHO AM I</p>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.375rem;">
+          text-sm font-medium text #E63946 uppercase tracking-wide
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 21: Animation & Transition Table       -->
+  <!-- ============================================= -->
+  <section id="s21" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">21</div>
+      <h2 class="ds-section-title">Animation & Transition Summary</h2>
+      <p class="ds-section-desc">All animations and transitions used across the site.</p>
+    </div>
+    <table class="ds-table">
+      <thead>
+        <tr><th>Component</th><th>Property</th><th>Duration</th><th>Easing</th><th>Trigger</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nav link</td><td>color</td><td>250ms</td><td>ease</td><td>hover</td></tr>
+        <tr><td>Entry card</td><td>border-color, box-shadow</td><td>300ms</td><td>ease</td><td>hover</td></tr>
+        <tr><td>Border glow ::before</td><td>opacity</td><td>300ms</td><td>ease</td><td>hover</td></tr>
+        <tr><td>CTA primary</td><td>background, box-shadow</td><td>250ms</td><td>ease</td><td>hover</td></tr>
+        <tr><td>Carousel dot</td><td>background, transform</td><td>300ms</td><td>ease</td><td>active/hover</td></tr>
+        <tr><td>3D carousel rotate</td><td>transform</td><td>rAF</td><td>ease-out (0.1 lerp)</td><td>drag/wheel/dot-click</td></tr>
+        <tr><td>Tool card</td><td>border-color</td><td>300ms</td><td>ease</td><td>hover</td></tr>
+        <tr><td>Contact card</td><td>border-color</td><td>300ms</td><td>ease</td><td>hover</td></tr>
+        <tr><td>Outline CTA</td><td>background</td><td>250ms</td><td>ease</td><td>hover</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 22: Event Binding Table               -->
+  <!-- ============================================= -->
+  <section id="s22" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">22</div>
+      <h2 class="ds-section-title">Event Binding Table</h2>
+      <p class="ds-section-desc">All JavaScript event handlers used across the site.</p>
+    </div>
+    <table class="ds-table">
+      <thead>
+        <tr><th>Component</th><th>Event</th><th>Handler</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>border-glow-card</td><td>mousemove</td><td>Sets --mouse-x, --mouse-y CSS vars</td></tr>
+        <tr><td>3D gallery scene</td><td>mousedown / mousemove / mouseup</td><td>Drag rotation</td></tr>
+        <tr><td>3D gallery scene</td><td>wheel</td><td>Step rotation (preventDefault)</td></tr>
+        <tr><td>3D gallery dots</td><td>click</td><td>Snap to card index</td></tr>
+        <tr><td>3D gallery scene</td><td>touchstart / touchmove / touchend</td><td>Touch drag</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 23: State Flow Matrix                 -->
+  <!-- ============================================= -->
+  <section id="s23" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">23</div>
+      <h2 class="ds-section-title">State Flow Matrix</h2>
+      <p class="ds-section-desc">All interactive states for every component.</p>
+    </div>
+    <table class="ds-table">
+      <thead>
+        <tr><th>Component</th><th>Default</th><th>Hover</th><th>Active</th><th>Focus</th><th>Disabled</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nav link</td><td>#666666</td><td>#F0F0F0</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>Nav link (active)</td><td>#999999</td><td>#F0F0F0</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>CTA Primary</td><td>bg #E63946</td><td>bg #C1121F + glow</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>CTA Outline</td><td>border + text</td><td>bg rgba(230,57,70,0.1)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>Entry card</td><td>border rgba(42,42,42,0.5)</td><td>border glow visible</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>Tool card</td><td>border rgba(42,42,42,0.5)</td><td>border rgba(230,57,70,0.3) + shadow</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>Contact card</td><td>border rgba(42,42,42,0.5)</td><td>border rgba(230,57,70,0.3)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>Carousel dot</td><td>bg rgba(42,42,42,0.6)</td><td>&mdash;</td><td>bg #E63946 scale(1.3)</td><td>&mdash;</td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 24: Responsive Breakpoints            -->
+  <!-- ============================================= -->
+  <section id="s24" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">24</div>
+      <h2 class="ds-section-title">Responsive Breakpoints</h2>
+      <p class="ds-section-desc">All breakpoints used in the project.</p>
+    </div>
+    <table class="ds-table">
+      <thead>
+        <tr><th>Token</th><th>Width</th><th>Usage</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>sm</code></td><td>640px</td><td>Entry cards: 1 &rarr; 2 columns</td></tr>
+        <tr><td><code>md</code></td><td>768px</td><td>Tool cards: 2-3 columns</td></tr>
+        <tr><td><code>lg</code></td><td>1024px</td><td>Entry cards: 2 &rarr; 4 columns</td></tr>
+        <tr><td><code>Custom</code></td><td>1400px</td><td>Content max-width</td></tr>
+        <tr><td><code>Custom</code></td><td>1700px</td><td>Container max-width (token)</td></tr>
+      </tbody>
+    </table>
+    <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem; font-style: italic;">Note: Site is PC-first, minimal mobile optimization.</div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 25: Template Structure                -->
+  <!-- ============================================= -->
+  <section id="s25" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">25</div>
+      <h2 class="ds-section-title">Template Structure</h2>
+      <p class="ds-section-desc">HTML skeleton that every page follows.</p>
+    </div>
+    <div style="background: #111111; border: 1px solid rgba(42,42,42,0.5); border-radius: 12px; padding: 1.5rem; overflow-x: auto;">
+      <pre style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #999999; line-height: 1.8; margin: 0; white-space: pre; tab-size: 2;"><span style="color: #666666;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #E63946;">&lt;html</span> <span style="color: #F0F0F0;">lang</span>=<span style="color: #FF6B6B;">"zh-CN"</span> <span style="color: #F0F0F0;">class</span>=<span style="color: #FF6B6B;">"dark"</span><span style="color: #E63946;">&gt;</span>
+<span style="color: #E63946;">&lt;head&gt;</span>
+  <span style="color: #E63946;">&lt;meta</span> <span style="color: #F0F0F0;">charset</span>=<span style="color: #FF6B6B;">"UTF-8"</span><span style="color: #E63946;">&gt;</span>
+  <span style="color: #E63946;">&lt;meta</span> <span style="color: #F0F0F0;">name</span>=<span style="color: #FF6B6B;">"viewport"</span> <span style="color: #F0F0F0;">content</span>=<span style="color: #FF6B6B;">"width=device-width, initial-scale=1.0"</span><span style="color: #E63946;">&gt;</span>
+  <span style="color: #E63946;">&lt;title&gt;</span><span style="color: #F0F0F0;">{Page} - 汤思远</span><span style="color: #E63946;">&lt;/title&gt;</span>
+  <span style="color: #E63946;">&lt;style</span> <span style="color: #F0F0F0;">id</span>=<span style="color: #FF6B6B;">"theme-vars"</span><span style="color: #E63946;">&gt;</span>
+    <span style="color: #666666;">/* All CSS variables */</span>
+  <span style="color: #E63946;">&lt;/style&gt;</span>
+  <span style="color: #E63946;">&lt;script</span> <span style="color: #F0F0F0;">src</span>=<span style="color: #FF6B6B;">"tailwind cdn"</span><span style="color: #E63946;">&gt;&lt;/script&gt;</span>
+  <span style="color: #E63946;">&lt;script</span> <span style="color: #F0F0F0;">src</span>=<span style="color: #FF6B6B;">"lucide cdn"</span><span style="color: #E63946;">&gt;&lt;/script&gt;</span>
+  <span style="color: #E63946;">&lt;style</span> <span style="color: #F0F0F0;">type</span>=<span style="color: #FF6B6B;">"text/tailwindcss"</span><span style="color: #E63946;">&gt;</span>
+    <span style="color: #666666;">/* Theme inline config */</span>
+  <span style="color: #E63946;">&lt;/style&gt;</span>
+  <span style="color: #E63946;">&lt;style&gt;</span>
+    <span style="color: #666666;">/* Component styles */</span>
+  <span style="color: #E63946;">&lt;/style&gt;</span>
+<span style="color: #E63946;">&lt;/head&gt;</span>
+<span style="color: #E63946;">&lt;body</span> <span style="color: #F0F0F0;">class</span>=<span style="color: #FF6B6B;">"min-h-screen font-sans antialiased"</span><span style="color: #E63946;">&gt;</span>
+
+  <span style="color: #E63946;">&lt;nav&gt;</span><span style="color: #666666;">/* Fixed top navigation */</span><span style="color: #E63946;">&lt;/nav&gt;</span>
+
+  <span style="color: #E63946;">&lt;main&gt;</span>
+    <span style="color: #E63946;">&lt;section&gt;</span><span style="color: #666666;">/* Page header */</span><span style="color: #E63946;">&lt;/section&gt;</span>
+    <span style="color: #E63946;">&lt;section&gt;</span><span style="color: #666666;">/* Page content */</span><span style="color: #E63946;">&lt;/section&gt;</span>
+    <span style="color: #E63946;">&lt;section&gt;</span><span style="color: #666666;">/* CTA */</span><span style="color: #E63946;">&lt;/section&gt;</span>
+  <span style="color: #E63946;">&lt;/main&gt;</span>
+
+  <span style="color: #E63946;">&lt;script&gt;</span><span style="color: #666666;">/* Component JS */</span><span style="color: #E63946;">&lt;/script&gt;</span>
+<span style="color: #E63946;">&lt;/body&gt;</span>
+<span style="color: #E63946;">&lt;/html&gt;</span></pre>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 26: Grid Pattern Background            -->
+  <!-- ============================================= -->
+  <section id="s26" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">26</div>
+      <h2 class="ds-section-title">Grid Pattern Background</h2>
+      <p class="ds-section-desc">Subtle grid pattern used on carousel card image areas.</p>
+    </div>
+    <div class="demo-box">
+      <div style="width: 300px; height: 180px; background: linear-gradient(135deg, #1A1A1A, #111111); border-radius: 12px; border: 1px solid rgba(42,42,42,0.5);" class="grid-pattern-demo"></div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        background-image:<br>
+        &nbsp;&nbsp;linear-gradient(rgba(42,42,42,0.1) 1px, transparent 1px),<br>
+        &nbsp;&nbsp;linear-gradient(90deg, rgba(42,42,42,0.1) 1px, transparent 1px);<br>
+        background-size: 24px 24px;
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- Footer -->
+  <div style="text-align: center; padding: 2rem 0;">
+    <p style="font-size: 0.75rem; color: #666666;">汤思远 Portfolio — UI Components & Design System Reference</p>
+    <p style="font-size: 0.6875rem; color: #444444; margin-top: 0.25rem;">Self-contained HTML file &middot; No external dependencies except Google Fonts & Tailwind CDN</p>
+  </div>
+
+</div><!-- /ds-main -->
+
+<!-- ===== JavaScript ===== -->
+<script>
+// --- Border Glow Effect ---
+document.querySelectorAll('.border-glow-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', x + 'px');
+    card.style.setProperty('--mouse-y', y + 'px');
+  });
+});
+
+// --- Sidebar active state on scroll ---
+const sections = document.querySelectorAll('.ds-section[id]');
+const sidebarLinks = document.querySelectorAll('.ds-sidebar a[href^="#"]');
+
+function updateActiveLink() {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 20;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  sidebarLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveLink);
+updateActiveLink();
+</script>
+
+</body>
+</html>
