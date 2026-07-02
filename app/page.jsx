@@ -1,6 +1,5 @@
 import HeroSection from '@/components/HeroSection'
 import EntryCard from '@/components/EntryCard'
-import Blockquote from '@/components/Blockquote'
 import ContactCard from '@/components/ContactCard'
 import CTAButton from '@/components/CTAButton'
 import { icons } from '@/components/icons'
@@ -16,7 +15,7 @@ export default function Home() {
         subtitle={homeData.subtitle}
       />
 
-      <section className="max-w-content mx-auto px-8 py-16">
+      <section className="max-w-content mx-auto px-8 pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {homeData.entries.map(entry => (
             <EntryCard
@@ -28,10 +27,6 @@ export default function Home() {
             />
           ))}
         </div>
-      </section>
-
-      <section className="max-w-2xl mx-auto px-8 py-16">
-        <Blockquote>{homeData.quote}</Blockquote>
       </section>
 
       <section id="contact" className="max-w-content mx-auto px-8 py-16">
