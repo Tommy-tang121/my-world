@@ -6,15 +6,15 @@ import { contacts } from '@/data/contacts'
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-screen flex flex-col overflow-hidden">
       <HeroSection
         name={homeData.name}
         tagline={homeData.tagline}
         subtitle={homeData.subtitle}
       />
 
-      <section className="max-w-content mx-auto px-8 w-full pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="max-w-content mx-auto px-8 w-full pb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {homeData.entries.map(entry => (
             <EntryCard
               key={entry.href}
@@ -27,7 +27,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer id="contact" className="max-w-content mx-auto px-8 w-full mt-auto pb-6 pt-8 border-t border-border-subtle">
+      <footer id="contact" className="max-w-content mx-auto px-8 w-full mt-auto pb-4 pt-4 border-t border-border-subtle">
         <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
           <span className="text-text-tertiary">联系方式：</span>
           {contacts.map(contact => {
