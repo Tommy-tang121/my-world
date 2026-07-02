@@ -1,21 +1,19 @@
 import HeroSection from '@/components/HeroSection'
 import EntryCard from '@/components/EntryCard'
-import ContactCard from '@/components/ContactCard'
-import CTAButton from '@/components/CTAButton'
 import { icons } from '@/components/icons'
 import { homeData } from '@/data/home'
 import { contacts } from '@/data/contacts'
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <HeroSection
         name={homeData.name}
         tagline={homeData.tagline}
         subtitle={homeData.subtitle}
       />
 
-      <section className="max-w-content mx-auto px-8 pb-12">
+      <section className="max-w-content mx-auto px-8 w-full pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {homeData.entries.map(entry => (
             <EntryCard
@@ -29,26 +27,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="max-w-content mx-auto px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold text-text-primary mb-2">Let&apos;s connect</h2>
-          <p className="text-text-secondary">想聊聊？随时找我</p>
+      <footer id="contact" className="max-w-content mx-auto px-8 w-full mt-auto pb-6 pt-8 border-t border-border-subtle">
+        <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
+          <span className="text-text-tertiary">联系方式：</span>
+          {contacts.map(contact => {
+            const Icon = icons[contact.icon]
+            const content = (
+              <span className="flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors duration-base">
+                {Icon}
+                <span>{contact.value}</span>
+              </span>
+            )
+            return contact.href ? (
+              <a key={contact.label} href={contact.href}>{content}</a>
+            ) : (
+              <span key={contact.label}>{content}</span>
+            )
+          })}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-          {contacts.map(contact => (
-            <ContactCard
-              key={contact.label}
-              icon={icons[contact.icon]}
-              label={contact.label}
-              value={contact.value}
-              href={contact.href}
-            />
-          ))}
-        </div>
-        <div className="text-center mt-12">
-          <CTAButton href="/works" variant="arrow">查看我的作品</CTAButton>
-        </div>
-      </section>
-    </>
+      </footer>
+    </div>
   )
 }
