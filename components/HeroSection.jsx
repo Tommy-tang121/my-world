@@ -9,7 +9,7 @@ export default function HeroSection({ name, tagline, subtitle }) {
           background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(230,57,70,0.15), transparent)',
         }}
       />
-      <div className="relative max-w-content mx-auto px-8 pt-16 pb-8 flex items-center justify-center gap-16">
+      <div className="relative max-w-content mx-auto px-8 pt-4 pb-6 flex items-center justify-center gap-16">
         <div className="flex-1">
           <p className="text-xs tracking-[0.2em] uppercase text-text-tertiary mb-3">{tagline}</p>
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">
