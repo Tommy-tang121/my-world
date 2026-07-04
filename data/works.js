@@ -1,3 +1,5 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 export const works = [
   {
     title: '吃啥呢-AI智能饮食推荐微信小程序',
@@ -8,7 +10,7 @@ export const works = [
     demo: '',
     createdAt: '2024-06-15', // 最旧
     detail: {
-      videoHtml: '<video src="/videos/chishane.mp4" controls playsinline autoplay style="width:100%;height:100%;object-fit:contain" />',
+      videoHtml: `<video src="${basePath}/videos/chishane.mp4" controls playsinline autoplay style="width:100%;height:100%;object-fit:contain" />`,
       intro: '一款以个人忌口为底线、以当下场景为起点的智能烹饪助手。核心价值是帮助用户快速决定吃什么，并有条不紊地做出来。',
       techStack: [
         { name: '微信小程序原生框架', desc: '前端' },
@@ -27,7 +29,7 @@ export const works = [
     demo: '',
     createdAt: '2026-07-01', // 最新
     detail: {
-      videoHtml: '<video src="/videos/ai-daily.mp4" controls playsinline autoplay style="width:100%;height:100%;object-fit:contain" />',
+      videoHtml: `<video src="${basePath}/videos/ai-daily.mp4" controls playsinline autoplay style="width:100%;height:100%;object-fit:contain" />`,
       intro: 'AI 热点日报自动发布系统，针对 AI 行业资讯收集、整理及公众号发布流程繁琐的问题，设计并实现一套本地自动化内容生产工作流。HooK实现Windows 计划任务 + 弹窗通知闭环每日流程。',
       techStack: [
         { name: 'Python Flask', desc: '后端框架' },
