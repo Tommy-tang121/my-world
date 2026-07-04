@@ -582,6 +582,16 @@ html.dark, html {
     <a href="#s24">24. Breakpoints</a>
     <a href="#s25">25. Template Structure</a>
     <a href="#s26">26. Grid Pattern</a>
+    <a href="#s27">27. Homepage Layout</a>
+    <a href="#s28">28. 3D Gallery Implementation 🚫</a>
+    <a href="#s29">29. WorkCard (Updated)</a>
+    <a href="#s30">30. WorkDetail (Design Draft Overlay)</a>
+    <a href="#s31">31. AI Tools Page Layout</a>
+    <a href="#s32">32. About Page Layout</a>
+    <a href="#s33">33. Now Page Layout</a>
+    <a href="#s34">34. SoftAurora Background</a>
+    <a href="#s35">35. ClickSpark</a>
+    <a href="#s36">36. Works Page End Indicator</a>
   </nav>
 </aside>
 
@@ -623,6 +633,16 @@ html.dark, html {
       <a href="#s24"><span class="toc-num">24</span>Breakpoints</a>
       <a href="#s25"><span class="toc-num">25</span>Template Structure</a>
       <a href="#s26"><span class="toc-num">26</span>Grid Pattern</a>
+      <a href="#s27"><span class="toc-num">27</span>Homepage Layout</a>
+      <a href="#s28"><span class="toc-num">28</span>3D Gallery Implementation 🚫</a>
+      <a href="#s29"><span class="toc-num">29</span>WorkCard (Updated)</a>
+      <a href="#s30"><span class="toc-num">30</span>WorkDetail Overlay</a>
+      <a href="#s31"><span class="toc-num">31</span>AI Tools Page</a>
+      <a href="#s32"><span class="toc-num">32</span>About Page</a>
+      <a href="#s33"><span class="toc-num">33</span>Now Page</a>
+      <a href="#s34"><span class="toc-num">34</span>SoftAurora Background</a>
+      <a href="#s35"><span class="toc-num">35</span>ClickSpark</a>
+      <a href="#s36"><span class="toc-num">36</span>Works End Indicator</a>
     </div>
   </div>
 
@@ -1018,27 +1038,28 @@ html.dark, html {
     </div>
 
     <!-- Grid Demos -->
-    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">2x2 Grid (Entry Cards)</h3>
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">2x2 Grid (Entry Cards) - Updated</h3>
     <div class="demo-box">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px 180px; max-width: 780px; margin: 0 auto;">
         <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
-          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 1</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Card 1</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">我的作品</div>
         </div>
         <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
-          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 2</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Card 2</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">AI工具心得</div>
         </div>
         <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
-          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 3</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Card 3</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">关于我</div>
         </div>
         <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 1.25rem;">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">grid-cols-1</div>
-          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Card 4</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">Card 4</div>
+          <div style="font-size: 0.8125rem; color: #F0F0F0; margin-top: 0.25rem;">Now</div>
         </div>
       </div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">grid grid-cols-2 gap-x-[180px] gap-y-6 max-w-[780px] mx-auto</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #444444; margin-top: 0.25rem;">Card width = (780 - 180) / 2 = 300px</div>
     </div>
 
     <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">3-Column Grid (Tool Cards)</h3>
@@ -1147,32 +1168,70 @@ html.dark, html {
   <div class="ds-divider"></div>
 
   <!-- ============================================= -->
-  <!-- SECTION 7: Navigation Bar                     -->
+  <!-- SECTION 7: Navigation (Dual Mode)             -->
   <!-- ============================================= -->
   <section id="s7" class="ds-section">
     <div class="ds-section-header">
       <div class="ds-section-num">07</div>
-      <h2 class="ds-section-title">Navigation Bar</h2>
-      <p class="ds-section-desc">Fixed top navigation with frosted glass effect. Background: rgba(10,10,10,0.6) with backdrop-blur-sm, border-bottom rgba(30,30,30,0.5).</p>
+      <h2 class="ds-section-title">Navigation (Dual Mode)</h2>
+      <p class="ds-section-desc">Two navigation modes: 1) Homepage has NO fixed navbar, nav is embedded top-right (absolute); 2) Other pages use sticky top navbar with frosted glass. 5 tabs only (no contact page).</p>
     </div>
 
-    <!-- Full Demo -->
+    <!-- Mode 1: Homepage Embedded Nav (top-right) -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Mode 1: Homepage Embedded Nav (Top-Right)</h3>
+    <div style="border: 1px solid rgba(42,42,42,0.5); border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; position: relative; height: 120px; background: #0A0A0A;">
+      <!-- Simulated top-right nav -->
+      <div style="position: absolute; top: 2rem; right: 2rem; z-index: 20; display: flex; gap: 2rem;">
+        <a href="#" style="font-size: 1.125rem; font-weight: 500; color: #E63946; text-decoration: none;">首页</a>
+        <a href="#" style="font-size: 1.125rem; font-weight: 500; color: #666666; text-decoration: none;">作品</a>
+        <a href="#" style="font-size: 1.125rem; font-weight: 500; color: #666666; text-decoration: none;">AI工具</a>
+        <a href="#" style="font-size: 1.125rem; font-weight: 500; color: #666666; text-decoration: none;">关于</a>
+        <a href="#" style="font-size: 1.125rem; font-weight: 500; color: #666666; text-decoration: none;">Now</a>
+      </div>
+      <div style="position: absolute; bottom: 0.75rem; left: 0.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: #666666;">
+        absolute top-8 right-8 z-20 | text-lg font-medium | gap-8
+      </div>
+    </div>
+    <div class="demo-box" style="margin-bottom: 1.5rem;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; line-height: 1.8;">
+        Position: absolute top-8 right-8 z-20<br>
+        Font: text-lg font-medium tracking-wide<br>
+        Active: text-primary (#E63946)<br>
+        Inactive: text-text-tertiary (#666666) hover:text-text-primary<br>
+        Gap: gap-8 (2rem)<br>
+        Note: Navbar component returns null on homepage (pathname === '/')
+      </div>
+    </div>
+
+    <!-- Mode 2: Sticky Top Navbar (other pages) -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Mode 2: Sticky Top Navbar (Other Pages)</h3>
     <div style="border: 1px solid rgba(42,42,42,0.5); border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
       <div style="background: rgba(10,10,10,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(30,30,30,0.5); padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center;">
         <a href="#" style="font-size: 0.875rem; font-weight: 500; color: #F0F0F0; text-decoration: none;">汤思远</a>
         <div class="nav-state-demo">
-          <a href="#" class="state-active">首页</a>
-          <a href="#">作品</a>
+          <a href="#">首页</a>
+          <a href="#" class="state-active">作品</a>
           <a href="#">AI工具</a>
           <a href="#">关于</a>
           <a href="#">Now</a>
-          <a href="#">联系</a>
         </div>
       </div>
     </div>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; line-height: 1.8;">
+        Position: sticky top-0 z-50 (NOT fixed)<br>
+        Background: rgba(10,10,10,0.6) + backdrop-blur-sm<br>
+        Border-bottom: 1px solid rgba(30,30,30,0.5)<br>
+        Left: "汤思远" logo (text-sm)<br>
+        Right: 5 tabs (text-sm font-medium, gap-6)<br>
+        Active: text-text-secondary (#999999)<br>
+        Inactive: text-text-tertiary (#666666) hover:text-text-primary<br>
+        Note: No "联系" tab (contact is in homepage footer)
+      </div>
+    </div>
 
-    <!-- States Demo -->
-    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Nav Link States</h3>
+    <!-- Nav Link States -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Nav Link States</h3>
     <div class="demo-box">
       <div class="nav-state-demo" style="margin-bottom: 0.5rem;">
         <a href="#">Default (#666666)</a>
@@ -1246,15 +1305,40 @@ html.dark, html {
     <!-- Avatar -->
     <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Avatar</h3>
     <div class="demo-box" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-      <div style="width: 120px; height: 120px; border-radius: 16px; border: 1px solid #2A2A2A; box-shadow: 0 0 40px rgba(230,57,70,0.1); background: #1A1A1A; display: flex; align-items: center; justify-content: center;">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+      <div style="width: 100px; height: 100px; border-radius: 16px; border: 1px solid #2A2A2A; box-shadow: 0 0 40px rgba(230,57,70,0.1); overflow: hidden; flex-shrink: 0;">
+        <img src="/avatar.jpg" alt="头像" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';this.parentElement.style.background='#1A1A1A';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.insertAdjacentHTML('afterend','<span style=font-size:0.625rem;color:#666666;font-family:monospace;>avatar.jpg</span>');">
       </div>
       <div>
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; line-height: 1.8;">
-          w-[120px] h-[120px] rounded-2xl<br>
+          w-[100px] h-[100px] rounded-2xl<br>
           border: 1px solid #2A2A2A<br>
-          box-shadow: 0 0 40px rgba(230,57,70,0.1)
+          box-shadow: 0 0 40px rgba(230,57,70,0.1)<br>
+          overflow: hidden<br>
+          &lt;img src="/avatar.jpg" object-cover w-full h-full&gt;<br>
+          <span style="color: #E63946;">⚠ 已替换为真实头像（原为 SVG 占位）</span>
         </div>
+      </div>
+    </div>
+
+    <!-- Centered Group Layout -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Centered Group Layout (Name + Avatar)</h3>
+    <div class="demo-box">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 2.5rem; padding: 1rem;">
+        <div>
+          <p class="section-label-sm" style="margin-bottom: 0.75rem;">Product Manager &amp; AI Explorer</p>
+          <span class="gradient-text" style="font-size: 2.5rem; font-weight: 700;">汤思远</span>
+          <p style="font-size: 1.125rem; color: #999999; margin-top: 0.5rem;">用 AI 重新定义个人效率的产品经理</p>
+        </div>
+        <div style="width: 100px; height: 100px; border-radius: 16px; border: 1px solid #2A2A2A; box-shadow: 0 0 40px rgba(230,57,70,0.1); overflow: hidden; flex-shrink: 0;">
+          <img src="/avatar.jpg" alt="头像" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';this.parentElement.style.background='#1A1A1A';">
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        Layout: flex items-center justify-center gap-10 (2.5rem)<br>
+        Hero container: pt-20 pb-8<br>
+        Name div: natural width (NO flex-1, to avoid avatar pushing to right edge)<br>
+        Avatar: flex-shrink-0 (never shrinks)<br>
+        This prevents avatar from overlapping with top-right embedded nav.
       </div>
     </div>
 
@@ -1396,7 +1480,7 @@ html.dark, html {
     <div class="ds-section-header">
       <div class="ds-section-num">12</div>
       <h2 class="ds-section-title">Tool / Content Card</h2>
-      <p class="ds-section-desc">Card used on AI tools page. Includes category header pattern.</p>
+      <p class="ds-section-desc">Card used on AI tools page. Includes category header pattern. <strong style="color: #F0F0F0;">ToolCard 现在是纯展示卡片，不再有点击跳转行为</strong>（已移除 link 属性和 &lt;a&gt; 包装）。useMouseGlow hook 使用 bug 已修复。</p>
     </div>
 
     <!-- Category Header -->
@@ -1440,7 +1524,7 @@ html.dark, html {
           <p style="font-size: 0.875rem; color: #999999; line-height: 1.625; font-style: italic;">"搭建AI Agent工作流的首选平台。"</p>
         </div>
       </div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">Hover to see border glow. Same technique as entry card.</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">Hover to see border glow. Same technique as entry card.<br><span style="color: #FF6B6B;">Bug 修复</span>：useMouseGlow hook 之前在 ToolCard 上存在引用错误，已修复，现在鼠标光晕在所有 ToolCard 上正常工作。</div>
     </div>
   </section>
 
@@ -1452,8 +1536,8 @@ html.dark, html {
   <section id="s13" class="ds-section">
     <div class="ds-section-header">
       <div class="ds-section-num">13</div>
-      <h2 class="ds-section-title">Carousel Card (3D Gallery)</h2>
-      <p class="ds-section-desc">The 380x480px card used in the 3D carousel gallery. Static demo shown.</p>
+      <h2 class="ds-section-title">Carousel Card (3D Gallery) <span style="color: #E63946; font-size: 0.75rem; font-weight: 400; margin-left: 0.5rem;">🚫 废弃</span></h2>
+      <p class="ds-section-desc"><strong style="color: #E63946;">已废弃</strong>：3D 轮播方案被移除，作品页改为 3 列错落平铺布局。WorkCard 改为 360px 高 + 右下角「查看详情」按钮（见 s29）。此 section 保留仅作历史记录。</p>
     </div>
     <div class="demo-box">
       <div style="width: 380px; background: #111111; border: 1px solid rgba(42,42,42,0.6); border-radius: 16px; overflow: hidden;">
@@ -1490,7 +1574,17 @@ html.dark, html {
         Image: 200px height | linear-gradient(135deg, #1A1A1A, #111111) + grid pattern<br>
         Body: padding 1.5rem<br>
         Tech Tag: text-xs px-3 py-1 rounded-full | bg #1A1A1A | color #999999 | border 1px solid rgba(42,42,42,0.5)<br>
-        Action Link: text-sm color #E63946 hover:underline
+        Action Link: text-sm color #E63946 hover:underline<br>
+        Problem field: text-sm italic with red → arrow prefix<br>
+        Links (GitHub/Demo): only rendered when work.github or work.demo is non-empty
+      </div>
+
+      <!-- Empty Links State -->
+      <h3 style="font-size: 0.8125rem; font-weight: 600; color: #999999; margin-bottom: 0.75rem; margin-top: 1.5rem;">Empty Links State (Current Default)</h3>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; line-height: 1.8; padding: 0.75rem; background: rgba(42,42,42,0.2); border-radius: 8px; border-left: 2px solid rgba(230,57,70,0.5);">
+        When work.github === '' and work.demo === '':<br>
+        &nbsp;&nbsp;The bottom link section (border-top + GitHub/Demo links) is NOT rendered.<br>
+        Current placeholder data in data/works.js has all github/demo as empty strings.
       </div>
     </div>
   </section>
@@ -1550,8 +1644,8 @@ html.dark, html {
   <section id="s15" class="ds-section">
     <div class="ds-section-header">
       <div class="ds-section-num">15</div>
-      <h2 class="ds-section-title">Blockquote</h2>
-      <p class="ds-section-desc">Styled blockquote with left border accent.</p>
+      <h2 class="ds-section-title">Blockquote <span style="color: #E63946; font-size: 0.75rem; font-weight: 400; margin-left: 0.5rem;">🚫 废弃</span></h2>
+      <p class="ds-section-desc"><strong style="color: #E63946;">已废弃</strong>：首页引言区已删除，Blockquote.jsx 组件文件已删除，全项目无任何引用。此 section 保留仅作历史记录。</p>
     </div>
     <div class="demo-box">
       <blockquote class="ds-blockquote">
@@ -1612,8 +1706,8 @@ html.dark, html {
   <section id="s17" class="ds-section">
     <div class="ds-section-header">
       <div class="ds-section-num">17</div>
-      <h2 class="ds-section-title">Contact Card</h2>
-      <p class="ds-section-desc">Full contact card with icon box and two-line text layout.</p>
+      <h2 class="ds-section-title">Contact Card <span style="color: #E63946; font-size: 0.75rem; font-weight: 400; margin-left: 0.5rem;">🚫 废弃</span></h2>
+      <p class="ds-section-desc"><strong style="color: #E63946;">已废弃</strong>：首页底部联系方式改用 footer 直接渲染，ContactCard.jsx 组件文件已删除，全项目无任何引用。此 section 保留仅作历史记录。</p>
     </div>
     <div class="demo-box">
       <div style="max-width: 400px;">
@@ -1662,8 +1756,8 @@ html.dark, html {
   <section id="s18" class="ds-section">
     <div class="ds-section-header">
       <div class="ds-section-num">18</div>
-      <h2 class="ds-section-title">Divider Patterns</h2>
-      <p class="ds-section-desc">Two gradient divider variants used across the site.</p>
+      <h2 class="ds-section-title">Divider Patterns <span style="color: #E63946; font-size: 0.75rem; font-weight: 400; margin-left: 0.5rem;">🚫 废弃</span></h2>
+      <p class="ds-section-desc"><strong style="color: #E63946;">已废弃</strong>：SectionDivider.jsx 组件文件已删除，全项目无引用，PageHeader 自带分隔线，不再需要独立 Divider 组件。此 section 保留仅作历史记录。</p>
     </div>
     <div class="demo-box">
       <!-- Short gradient divider -->
@@ -1690,19 +1784,26 @@ html.dark, html {
   <section id="s19" class="ds-section">
     <div class="ds-section-header">
       <div class="ds-section-num">19</div>
-      <h2 class="ds-section-title">Carousel Dots</h2>
-      <p class="ds-section-desc">Navigation dots for the 3D carousel gallery.</p>
+      <h2 class="ds-section-title">Carousel Dots <span style="color: #E63946; font-size: 0.75rem; font-weight: 400; margin-left: 0.5rem;">🚫 废弃</span></h2>
+      <p class="ds-section-desc"><strong style="color: #E63946;">已废弃</strong>：3D 轮播移除后不再需要圆点导航组件。此 section 保留仅作历史记录。</p>
     </div>
     <div class="demo-box">
-      <div style="display: flex; gap: 0.75rem; align-items: center;">
-        <div class="carousel-dot"></div>
-        <div class="carousel-dot active"></div>
-        <div class="carousel-dot"></div>
+      <div style="display: flex; gap: 0.5rem; align-items: center; justify-content: center;">
+        <!-- Inactive (circular) -->
+        <div style="width: 8px; height: 8px; border-radius: 9999px; background: rgba(42,42,42,0.6);"></div>
+        <!-- Active (pill + scale) -->
+        <div style="width: 24px; height: 8px; border-radius: 9999px; background: #E63946; transform: scale(1.3);"></div>
+        <!-- Inactive (circular) -->
+        <div style="width: 8px; height: 8px; border-radius: 9999px; background: rgba(42,42,42,0.6);"></div>
+        <!-- Inactive (circular) -->
+        <div style="width: 8px; height: 8px; border-radius: 9999px; background: rgba(42,42,42,0.6);"></div>
       </div>
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
-        Default: w-8 h-8 rounded-full bg rgba(42,42,42,0.6)<br>
-        Active: bg #E63946 transform scale(1.3)<br>
-        Transition: background 300ms ease, transform 300ms ease
+        Inactive: w-2 h-2 rounded-full bg-border/60 hover:bg-border<br>
+        Active: w-6 h-2 rounded-full bg-primary scale-[1.3]<br>
+        Gap: gap-2 (0.5rem)<br>
+        Transition: all 250ms ease (duration-base)<br>
+        Container: flex justify-center mt-8
       </div>
     </div>
   </section>
@@ -1764,8 +1865,11 @@ html.dark, html {
         <tr><td>Tool card</td><td>border-color</td><td>300ms</td><td>ease</td><td>hover</td></tr>
         <tr><td>Contact card</td><td>border-color</td><td>300ms</td><td>ease</td><td>hover</td></tr>
         <tr><td>Outline CTA</td><td>background</td><td>250ms</td><td>ease</td><td>hover</td></tr>
+        <tr><td>SoftAurora shader</td><td>WebGL uniform (color/position)</td><td>rAF (continuous)</td><td>linear flow</td><td>持续渲染 + mousemove 视差</td></tr>
+        <tr><td>ClickSpark</td><td>canvas line position + length</td><td>400ms</td><td>ease-out</td><td>click（点击触发）</td></tr>
       </tbody>
     </table>
+    <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem; font-style: italic;">注：SoftAurora 是全屏 WebGL 背景持续流动；ClickSpark 是点击时从点击点向外发射 8 条线条，400ms 消散。</div>
   </section>
 
   <div class="ds-divider"></div>
@@ -1784,11 +1888,19 @@ html.dark, html {
         <tr><th>Component</th><th>Event</th><th>Handler</th></tr>
       </thead>
       <tbody>
-        <tr><td>border-glow-card</td><td>mousemove</td><td>Sets --mouse-x, --mouse-y CSS vars</td></tr>
-        <tr><td>3D gallery scene</td><td>mousedown / mousemove / mouseup</td><td>Drag rotation</td></tr>
-        <tr><td>3D gallery scene</td><td>wheel</td><td>Step rotation (preventDefault)</td></tr>
-        <tr><td>3D gallery dots</td><td>click</td><td>Snap to card index</td></tr>
-        <tr><td>3D gallery scene</td><td>touchstart / touchmove / touchend</td><td>Touch drag</td></tr>
+        <tr><td>border-glow-card (EntryCard)</td><td>mousemove</td><td>Sets --mouse-x, --mouse-y CSS vars via useMouseGlow hook</td></tr>
+        <tr><td>3D gallery container</td><td>mousedown</td><td>Start drag: record startX + startAngle, set cursor=grabbing</td></tr>
+        <tr><td>window</td><td>mousemove (during drag)</td><td>Update targetAngle = startAngle + dx * 0.3 (1px = 0.3deg)</td></tr>
+        <tr><td>window</td><td>mouseup</td><td>End drag: snap to nearest card (Math.round), set cursor=grab</td></tr>
+        <tr><td>3D gallery container</td><td>wheel (passive: false)</td><td>Step rotation: deltaY>0 = next, &lt;0 = prev, preventDefault</td></tr>
+        <tr><td>3D gallery container</td><td>touchstart (passive)</td><td>Record startX + startAngle</td></tr>
+        <tr><td>3D gallery container</td><td>touchmove (passive)</td><td>Update targetAngle = startAngle + dx * 0.3</td></tr>
+        <tr><td>3D gallery container</td><td>touchend</td><td>Snap to nearest card</td></tr>
+        <tr><td>carousel dot button</td><td>click</td><td>Select card by index, compute shortest path rotation</td></tr>
+        <tr><td>requestAnimationFrame</td><td>tick (continuous)</td><td>lerp 0.1: angle += (target - angle) * 0.1, update container transform</td></tr>
+        <tr><td>ClickSpark 内容层 div（layout.jsx）</td><td>click</td><td>全局：在点击位置创建 canvas，从点击点向外发射 8 条线条（2π/8 均分角度），ease-out 缓动，400ms 消散</td></tr>
+        <tr><td>WorkDetail 视频提示卡</td><td>click</td><td>setVideoExpanded(true)：折叠提示卡 → 展开完整视频播放器，video 标签带 autoplay 自动播放</td></tr>
+        <tr><td>SoftAurora 背景（layout.jsx）</td><td>mousemove</td><td>更新 shader 中鼠标 uniform，背景产生轻微视差偏移（mouseInfluence=0.25）</td></tr>
       </tbody>
     </table>
   </section>
@@ -1817,8 +1929,10 @@ html.dark, html {
         <tr><td>Tool card</td><td>border rgba(42,42,42,0.5)</td><td>border rgba(230,57,70,0.3) + shadow</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
         <tr><td>Contact card</td><td>border rgba(42,42,42,0.5)</td><td>border rgba(230,57,70,0.3)</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
         <tr><td>Carousel dot</td><td>bg rgba(42,42,42,0.6)</td><td>&mdash;</td><td>bg #E63946 scale(1.3)</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>WorkDetail 视频区</td><td>折叠（videoExpanded=false，显示提示卡）</td><td>&mdash;</td><td>展开（videoExpanded=true，显示播放器 + autoplay）</td><td>&mdash;</td><td>&mdash;</td></tr>
       </tbody>
     </table>
+    <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem; font-style: italic;">WorkDetail 视频状态流：videoExpanded=false（折叠显示提示卡）→ 点击提示卡 → videoExpanded=true（展开显示完整播放器，autoplay 自动播放）</div>
   </section>
 
   <div class="ds-divider"></div>
@@ -1911,6 +2025,815 @@ html.dark, html {
         &nbsp;&nbsp;linear-gradient(rgba(42,42,42,0.1) 1px, transparent 1px),<br>
         &nbsp;&nbsp;linear-gradient(90deg, rgba(42,42,42,0.1) 1px, transparent 1px);<br>
         background-size: 24px 24px;
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 27: Homepage Layout                   -->
+  <!-- ============================================= -->
+  <section id="s27" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">27</div>
+      <h2 class="ds-section-title">Homepage Layout</h2>
+      <p class="ds-section-desc">Full homepage structure: Hero (centered name+avatar) + top-right embedded nav + 2x2 entry cards + footer contact. No fixed navbar, no scroll.</p>
+    </div>
+    <div class="demo-box">
+      <div style="background: #0A0A0A; border: 1px solid rgba(42,42,42,0.5); border-radius: 12px; padding: 0; overflow: hidden; position: relative; min-height: 400px;">
+        <!-- Top-right nav -->
+        <div style="position: absolute; top: 2rem; right: 2rem; display: flex; gap: 2rem; font-size: 1.125rem; font-weight: 500;">
+          <span style="color: #E63946;">首页</span>
+          <span style="color: #666666;">作品</span>
+          <span style="color: #666666;">AI工具</span>
+          <span style="color: #666666;">关于</span>
+          <span style="color: #666666;">Now</span>
+        </div>
+
+        <!-- Hero -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2.5rem; padding: 5rem 2rem 2rem;">
+          <div>
+            <p style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #666666; margin-bottom: 0.75rem;">Product Manager &amp; AI Explorer</p>
+            <span style="font-size: 3.5rem; font-weight: 700; background: linear-gradient(to right, #F0F0F0, #999999); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">汤思远</span>
+            <p style="font-size: 1.125rem; color: #999999; margin-top: 0.5rem;">用 AI 重新定义个人效率的产品经理</p>
+          </div>
+          <div style="width: 100px; height: 100px; border-radius: 16px; border: 1px solid #2A2A2A; background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+          </div>
+        </div>
+
+        <!-- 2x2 Cards -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px 180px; max-width: 780px; margin: 2.5rem auto 1.5rem; padding: 0 2rem;">
+          <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 2rem;">
+            <div style="color: #E63946; margin-bottom: 1rem;">icon</div>
+            <div style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0;">我的作品</div>
+            <div style="font-size: 0.875rem; color: #666666;">查看我开发过的项目</div>
+          </div>
+          <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 2rem;">
+            <div style="color: #E63946; margin-bottom: 1rem;">icon</div>
+            <div style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0;">AI工具心得</div>
+            <div style="font-size: 0.875rem; color: #666666;">收藏和使用的AI工具</div>
+          </div>
+          <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 2rem;">
+            <div style="color: #E63946; margin-bottom: 1rem;">icon</div>
+            <div style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0;">关于我</div>
+            <div style="font-size: 0.875rem; color: #666666;">了解我的经历</div>
+          </div>
+          <div style="background: rgba(17,17,17,0.8); border: 1px solid rgba(42,42,42,0.5); border-radius: 1rem; padding: 2rem;">
+            <div style="color: #E63946; margin-bottom: 1rem;">icon</div>
+            <div style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0;">Now</div>
+            <div style="font-size: 0.875rem; color: #666666;">我最近在做什么</div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="border-top: 1px solid #1E1E1E; padding: 1.25rem 2rem; display: flex; justify-content: center; gap: 2rem; font-size: 0.875rem;">
+          <span style="color: #666666;">联系方式：</span>
+          <span style="color: #999999;">微信 Siyuan_Tang</span>
+          <span style="color: #999999;">邮箱 siyuan@example.com</span>
+        </div>
+      </div>
+
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 1rem; line-height: 1.8;">
+        Root: min-h-screen flex flex-col relative<br>
+        Hero: pt-20 pb-8, centered group (name div + avatar 100x100), gap-10, NO flex-1<br>
+        Nav: absolute top-8 right-8 z-20, text-lg font-medium, gap-8<br>
+        Cards: grid-cols-2 gap-x-[180px] gap-y-6 max-w-[780px] mx-auto, pt-10 pb-6<br>
+        Footer: mt-auto, border-top border-border-subtle, flex justify-center gap-8 text-sm<br>
+        No fixed navbar (Navbar returns null on '/')<br>
+        Goal: fit one screen without scroll
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 28: 3D Gallery Implementation         -->
+  <!-- ============================================= -->
+  <section id="s28" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">28</div>
+      <h2 class="ds-section-title">3D Gallery Implementation <span style="color: #E63946; font-size: 0.75rem; font-weight: 400; margin-left: 0.5rem;">🚫 废弃</span></h2>
+      <p class="ds-section-desc"><strong style="color: #E63946;">已废弃</strong>：3D 轮播方案被用户否决，改为 3 列错落平铺 + 详情浮层方案。Gallery3D 组件文件保留但不再使用。此 section 保留仅作历史记录。</p>
+    </div>
+
+    <!-- Core Parameters -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">Core Parameters</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead>
+        <tr><th>Parameter</th><th>Value</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>radius</td><td>500px</td><td>Ring radius (larger = flatter ring)</td></tr>
+        <tr><td>step</td><td>360 / count (90° for 4 cards)</td><td>Angular distance between cards</td></tr>
+        <tr><td>perspective</td><td>1400px</td><td>3D perspective depth</td></tr>
+        <tr><td>lerp factor</td><td>0.1</td><td>Easing: angle += (target - angle) * 0.1</td></tr>
+        <tr><td>drag ratio</td><td>0.3 deg/px</td><td>1px drag = 0.3° rotation</td></tr>
+        <tr><td>container height</td><td>560px</td><td>Gallery viewport height</td></tr>
+        <tr><td>card size</td><td>380x480px</td><td>Each WorkCard dimensions</td></tr>
+        <tr><td>card offset</td><td>marginLeft -190, marginTop -240</td><td>Center cards in container (half width/height)</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Transform Formula -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">CSS Transform Formula</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* Container (rotates) */</div>
+        transform: translateZ(-500px) rotateY({angle}deg);<br>
+        transformStyle: preserve-3d;<br><br>
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* Each card (positioned on ring) */</div>
+        transform: rotateY({i * step}deg) translateZ(500px);<br>
+        backfaceVisibility: hidden;
+      </div>
+      <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem;">
+        Container is translated back by radius, then rotated. Each card is rotated to its slot then pushed forward by radius.
+      </div>
+    </div>
+
+    <!-- Input Methods -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">4 Input Methods</h3>
+    <table class="ds-table">
+      <thead>
+        <tr><th>Method</th><th>Events</th><th>Behavior</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mouse Drag</td><td>mousedown / mousemove / mouseup</td><td>Drag to rotate, 0.3°/px. Snap on release.</td></tr>
+        <tr><td>Scroll Wheel</td><td>wheel (preventDefault)</td><td>deltaY > 0 = next card, < 0 = prev</td></tr>
+        <tr><td>Touch</td><td>touchstart / touchmove / touchend</td><td>Same as mouse drag, for mobile</td></tr>
+        <tr><td>Dots Click</td><td>click</td><td>Select by index, shortest path rotation</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Snap Logic -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Snap-to-Card Logic</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        <div style="color: #666666; margin-bottom: 0.5rem;">// On drag/touch release:</div>
+        const nearest = Math.round(-targetAngle / step);<br>
+        targetAngle = -nearest * step;<br>
+        const idx = ((nearest % count) + count) % count;
+      </div>
+      <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem;">
+        Rounds target angle to nearest step multiple, then derives card index.
+      </div>
+    </div>
+
+    <!-- Children Prop Pattern -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem; margin-top: 1.5rem;">Children Prop Pattern (Next.js)</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        <div style="color: #666666; margin-bottom: 0.5rem;">// Works page (Server Component) passes cards as children:</div>
+        &lt;Gallery3D&gt;<br>
+        &nbsp;&nbsp;{works.map(work =&gt; &lt;WorkCard key={work.title} work={work} /&gt;)}<br>
+        &lt;/Gallery3D&gt;<br><br>
+        <div style="color: #666666; margin-bottom: 0.5rem;">// Gallery3D (Client Component) receives via Children.toArray:</div>
+        const cards = Children.toArray(children)
+      </div>
+      <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem;">
+        Note: Cannot pass renderCard function from Server to Client Component. Use children prop instead.
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 29: WorkCard (Updated)                 -->
+  <!-- ============================================= -->
+  <section id="s29" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">29</div>
+      <h2 class="ds-section-title">WorkCard (Updated)</h2>
+      <p class="ds-section-desc">作品卡片更新版：高度 300px，3 列错落布局（中间列 mt-16），底部加「查看详情 →」按钮触发浮层。intro 段和 problem 段使用 text-text-secondary（#999999，更亮，可读性更好）。</p>
+    </div>
+
+    <!-- 布局参数 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">布局参数</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead>
+        <tr><th>参数</th><th>值</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>卡片高度</td><td>300px</td><td>固定高度，内容溢出隐藏</td></tr>
+        <tr><td>图区高度</td><td>130px</td><td>顶部网格图案区</td></tr>
+        <tr><td>布局</td><td>grid-cols-3</td><td>三列平铺</td></tr>
+        <tr><td>横向间距</td><td>gap-x-8 (32px)</td><td>列间距</td></tr>
+        <tr><td>纵向间距</td><td>gap-y-10 (40px)</td><td>行间距</td></tr>
+        <tr><td>容器宽度</td><td>max-w-[1200px]</td><td>居中限宽</td></tr>
+        <tr><td>错落规则</td><td>i % 3 === 1 时 mt-16</td><td>第 2、5、8 张（中间列）下移 60px</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 卡片结构 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">卡片结构</h3>
+    <div class="demo-box">
+      <div style="width: 300px; background: #111111; border: 1px solid rgba(42,42,42,0.6); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; height: 300px;">
+        <!-- 图区 -->
+        <div style="height: 130px; background: linear-gradient(135deg, #1A1A1A, #111111); background-image: linear-gradient(rgba(42,42,42,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(42,42,42,0.3) 1px, transparent 1px); background-size: 20px 20px; display: flex; align-items: center; justify-content: center;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#3A3A3A" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <!-- 正文区 -->
+        <div style="flex: 1; padding: 1.5rem; display: flex; flex-direction: column;">
+          <h3 style="font-size: 1.25rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.5rem;">作品一</h3>
+          <p style="font-size: 0.875rem; color: #999999; margin-bottom: 0.75rem;">一句话描述这个项目做了什么</p>
+          <p style="font-size: 0.875rem; color: #999999; font-style: italic; margin-bottom: 1rem; display: flex; gap: 0.5rem;"><span style="color: #E63946;">→</span><span>解决了信息整理效率低的问题</span></p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; border-radius: 9999px; background: #1A1A1A; color: #C0C0C0; border: 1px solid rgba(42,42,42,0.6);">Next.js</span>
+            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; border-radius: 9999px; background: #1A1A1A; color: #C0C0C0; border: 1px solid rgba(42,42,42,0.6);">Tailwind</span>
+          </div>
+          <!-- 底部详情按钮 -->
+          <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(42,42,42,0.5); display: flex; justify-content: flex-end;">
+            <button style="display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.875rem; color: #E63946; background: transparent; border: none; cursor: pointer;">
+              <span>查看详情</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 事件绑定 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">事件绑定</h3>
+    <table class="ds-table">
+      <thead><tr><th>元素</th><th>事件</th><th>处理逻辑</th></tr></thead>
+      <tbody>
+        <tr><td>查看详情按钮</td><td>onClick</td><td>调用 onOpenDetail(work)，父组件 setSelectedWork(work) 触发浮层</td></tr>
+        <tr><td>箭头 SVG</td><td>hover</td><td>group-hover:translate-x-0.5（向右移 2px）</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 30: WorkDetail (Design Draft Overlay)  -->
+  <!-- ============================================= -->
+  <section id="s30" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">30</div>
+      <h2 class="ds-section-title">WorkDetail (Design Draft Overlay)</h2>
+      <p class="ds-section-desc">作品详情浮层：设计稿翻页动画（rotateX -90° → 0°）+ 视频提示卡（默认折叠，点击展开自动播放）+ 项目介绍 + 技术栈 + GitHub 链接。点击卡片「查看详情」按钮触发。</p>
+    </div>
+
+    <!-- 触发条件 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">触发与关闭</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>操作</th><th>触发</th><th>行为</th></tr></thead>
+      <tbody>
+        <tr><td>点击卡片「查看详情」</td><td>onClick</td><td>setSelectedWork(work) → 浮层挂载 → 10ms 后 setOpened(true) 触发翻开动画</td></tr>
+        <tr><td>点击遮罩</td><td>onClick</td><td>close() → setOpened(false) → 400ms 后 onClose() 卸载组件</td></tr>
+        <tr><td>点击关闭按钮（×）</td><td>onClick</td><td>同上，stopPropagation 防止冒泡到遮罩</td></tr>
+        <tr><td>按 ESC 键</td><td>keydown</td><td>同上</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 翻页动画参数 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">翻页动画参数</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>参数</th><th>初始态</th><th>展开态</th></tr></thead>
+      <tbody>
+        <tr><td>transformOrigin</td><td colspan="2">center bottom（底部为轴）</td></tr>
+        <tr><td>transform</td><td>perspective(2000px) rotateX(-90deg) scale(0.8)</td><td>perspective(2000px) rotateX(0deg) scale(1)</td></tr>
+        <tr><td>opacity</td><td>0</td><td>1</td></tr>
+        <tr><td>transition</td><td colspan="2">transform 500ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease</td></tr>
+        <tr><td>遮罩背景</td><td colspan="2">rgba(0,0,0,0.85) + backdrop-filter blur(8px)</td></tr>
+        <tr><td>遮罩 opacity 过渡</td><td colspan="2">400ms ease</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 浮层结构 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">浮层结构</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* 遮罩层 */</div>
+        &lt;div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"&gt;<br>
+        &nbsp;&nbsp;&lt;div onClick={close}&gt; /* 点遮罩关闭 */<br><br>
+        <div style="color: #666666; margin: 0.5rem 0;">/* 设计稿容器（翻页动画） */</div>
+        &nbsp;&nbsp;&lt;div className="bg-surface border rounded-2xl max-w-5xl max-h-[90vh] flex flex-col"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;onClick={(e) =&gt; e.stopPropagation()} /* 防冒泡 */<br><br>
+        <div style="color: #666666; margin: 0.5rem 0;">/* 顶部标题栏（flex-shrink-0 固定高度） */</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="px-6 py-4 border-b"&gt;{work.title} + 关闭按钮&lt;/div&gt;<br><br>
+        <div style="color: #666666; margin: 0.5rem 0;">/* 内容滚动区（overflow-y-auto） */</div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="overflow-y-auto p-6 md:p-8 space-y-8"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{detail.videoHtml &amp;&amp; &lt;视频区 /&gt;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{detail.intro &amp;&amp; &lt;项目介绍 /&gt;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{detail.techStack &amp;&amp; &lt;技术栈 /&gt;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{detail.github &amp;&amp; &lt;GitHub 链接 /&gt;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+      </div>
+    </div>
+
+    <!-- 内容区条件渲染 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">内容区条件渲染</h3>
+    <table class="ds-table">
+      <thead><tr><th>字段</th><th>条件</th><th>渲染内容</th></tr></thead>
+      <tbody>
+        <tr><td>detail.videoHtml</td><td>非空字符串</td><td>16:9 视频区，dangerouslySetInnerHTML 渲染 iframe/video</td></tr>
+        <tr><td>detail.intro</td><td>非空字符串</td><td>项目介绍段落 + problem 引用（如有）</td></tr>
+        <tr><td>detail.techStack</td><td>数组且 length &gt; 0</td><td>技术栈网格（1列移动端 / 2列桌面端），每项含 name + desc</td></tr>
+        <tr><td>detail.github</td><td>非空字符串</td><td>GitHub 按钮（描边样式，新窗口打开）</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 视频提示卡（折叠/展开） -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">视频提示卡（折叠 / 展开）</h3>
+    <p style="font-size: 0.8125rem; color: #999999; margin-bottom: 0.75rem;">视频区不再默认展示完整播放器，而是默认折叠成紧凑提示卡，点击后才展开成完整播放器，避免一进浮层就自动加载视频影响阅读。</p>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>状态</th><th>videoExpanded</th><th>展示内容</th><th>触发</th></tr></thead>
+      <tbody>
+        <tr><td>折叠态（默认）</td><td>false</td><td>紧凑提示卡：红色播放图标 + 「演示视频」标题 + 「点击播放项目演示」副文案</td><td>—</td></tr>
+        <tr><td>展开态</td><td>true</td><td>完整 16:9 视频播放器（dangerouslySetInnerHTML 渲染 iframe/video），<code>autoplay</code> 属性自动播放（点击行为算用户交互，符合浏览器自动播放策略）</td><td>点击提示卡 → setVideoExpanded(true)</td></tr>
+      </tbody>
+    </table>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* state 控制 */</div>
+        const [videoExpanded, setVideoExpanded] = useState(false)<br><br>
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* 折叠态渲染 */</div>
+        &lt;div onClick={() =&gt; setVideoExpanded(true)}&gt;<br>
+        &nbsp;&nbsp;&lt;PlayIcon /&gt; &lt;span&gt;演示视频&lt;/span&gt; &lt;span&gt;点击播放项目演示&lt;/span&gt;<br>
+        &lt;/div&gt;<br><br>
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* 展开态渲染 */</div>
+        &lt;div dangerouslySetInnerHTML={{ __html: detail.videoHtml }} /&gt;<br>
+        &nbsp;&nbsp;/* video 标签带 autoplay 属性 */
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 31: AI Tools Page Layout               -->
+  <!-- ============================================= -->
+  <section id="s31" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">31</div>
+      <h2 class="ds-section-title">AI Tools Page Layout</h2>
+      <p class="ds-section-desc">AI 工具页：<code>h-screen overflow-hidden</code> 锁死一屏不滚动，左右两栏布局（<code>grid grid-cols-2 gap-x-12</code>）。左栏 AI 工具分类（Model/Agent/Video）每类用 <code>grid grid-cols-3 gap-2</code> 排列卡片；右栏技能栈（前端/后端/数据库/其他技能）用标签胶囊展示。</p>
+    </div>
+
+    <!-- 布局参数 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">布局参数</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>页面容器</td><td>h-screen overflow-hidden</td><td>锁死一屏高度，禁止滚动</td></tr>
+        <tr><td>内层布局</td><td>max-w-container mx-auto px-8 py-8 h-full flex flex-col</td><td>PageHeader 固定 + 内容区 flex-1</td></tr>
+        <tr><td>内容区</td><td>flex-1 grid grid-cols-2 gap-x-12 min-h-0 mt-6</td><td>左右两栏均分剩余空间</td></tr>
+        <tr><td>左栏（AI 工具）</td><td>flex flex-col gap-5 min-h-0 overflow-hidden</td><td>3 个分类垂直排列：Model / Agent / Video</td></tr>
+        <tr><td>每分类内卡片</td><td>grid grid-cols-3 gap-2</td><td>3 列等宽网格，所有卡片大小一致（修复 Video 被截断问题）</td></tr>
+        <tr><td>右栏（技能栈）</td><td>flex flex-col min-h-0 overflow-hidden</td><td>4 个分类垂直排列：前端/后端/数据库/其他技能</td></tr>
+        <tr><td>技能标签</td><td>flex flex-wrap gap-2 + 胶囊</td><td>text-xs px-3 py-1.5 rounded-full bg-surface-elevated border</td></tr>
+        <tr><td>分类标题</td><td>红色渐变竖条 + 分类名</td><td>w-1 h-5 rounded-full bg-gradient-to-b from-primary to-[#C1121F]</td></tr>
+        <tr><td>容器宽度</td><td>max-w-container (1700px) mx-auto</td><td>居中限宽</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 数据结构 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">数据结构（data/ai-tools.js）</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        export const aiTools = [<br>
+        &nbsp;&nbsp;{ category: 'Model', tools: [{ name, testimonial }] },<br>
+        &nbsp;&nbsp;{ category: 'Agent', tools: [...] },<br>
+        &nbsp;&nbsp;{ category: 'Video', tools: [...] },<br>
+        ]<br><br>
+        export const skills = [<br>
+        &nbsp;&nbsp;{ category: '前端', items: ['HTML', 'CSS', 'TypeScript', 'React'] },<br>
+        &nbsp;&nbsp;{ category: '后端', items: ['Python', 'Flask', 'FastAPI'] },<br>
+        &nbsp;&nbsp;{ category: '数据库', items: ['MySQL', 'SQLite', 'MongoDB'] },<br>
+        &nbsp;&nbsp;{ category: '其他技能', items: ['Rhino', 'Solidworks'] },<br>
+        ]<br><br>
+        <span style="color: #666666;">/* 当前工具列表 */</span><br>
+        Model: ChatGPT / deepseek / GLM <span style="color: #666666;">// 3 个 → 1 行</span><br>
+        Agent: Claude Code / Codex / OpenCode / Trae / Coze <span style="color: #666666;">// 5 个 → 2 行（3+2）</span><br>
+        Video: 即梦 / 小云雀 <span style="color: #666666;">// 2 个 → 1 行</span><br>
+        <span style="color: #E63946;">/* 共 10 张卡片 → 4 行，能塞进一屏，Video 不再被截断 */</span><br><br>
+        <span style="color: #666666;">/* 所有 testimonial 字段为空字符串，不显示心得 */</span>
+      </div>
+    </div>
+
+    <!-- 工具卡片 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">ToolCard 样式</h3>
+    <div class="demo-box">
+      <div style="background: rgba(17,17,17,0.8); backdrop-filter: blur(4px); border: 1px solid rgba(42,42,42,0.5); border-radius: 12px; padding: 1rem; height: 100px; position: relative; overflow: hidden;">
+        <h3 style="font-size: 1rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.25rem;">ChatGPT</h3>
+        <p style="font-size: 0.75rem; color: #999999; font-style: italic;">日常思考和写作的主力，对话质量稳定</p>
+      </div>
+      <div style="font-size: 0.75rem; color: #666666; margin-top: 0.75rem;">
+        rounded-xl p-4 h-full w-full；纯展示卡片，无点击跳转行为（已移除 link 属性和 &lt;a&gt; 包装）；鼠标光晕（同 EntryCard，useMouseGlow hook 已修复）
+      </div>
+    </div>
+
+    <!-- 布局变更说明 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">布局变更说明</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        v1（初始）：grid-rows-3 三行均分<br>
+        v2：上下两区（可滚动）<br>
+        v3：左右两栏 + flex flex-wrap + w-[calc((100%-2rem)/3)]<br>
+        <span style="color: #E63946;">v4（当前）：左右两栏 + grid-cols-3 gap-2（修复 Video 分类被 overflow-hidden 截断问题）</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 32: About Page Layout                  -->
+  <!-- ============================================= -->
+  <section id="s32" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">32</div>
+      <h2 class="ds-section-title">About Page Layout</h2>
+      <p class="ds-section-desc">关于页：自我介绍 3 段 + 工作经历时间线（左侧竖线 + 红色圆点）+ 底部 CTA 按钮。</p>
+    </div>
+
+    <!-- 布局参数 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">布局参数</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>页面容器</td><td>min-h-screen</td><td>允许滚动（内容不多）</td></tr>
+        <tr><td>内容宽度</td><td>max-w-3xl (768px) mx-auto</td><td>窄居中，阅读友好</td></tr>
+        <tr><td>内边距</td><td>px-8 py-16</td><td>左右 32px，上下 64px</td></tr>
+        <tr><td>PageHeader</td><td>label="WHO AM I" title="关于我" subtitle="一些关于我的故事"</td><td>三段式标题</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 时间线结构 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">时间线结构</h3>
+    <div class="demo-box">
+      <div style="position: relative; padding-left: 2rem;">
+        <!-- 竖线 -->
+        <div style="position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem; width: 1px; background: #2A2A2A;"></div>
+        <!-- 条目1 -->
+        <div style="position: relative; margin-bottom: 2.5rem;">
+          <div style="position: absolute; left: -2rem; top: 0.375rem; width: 8px; height: 8px; border-radius: 9999px; background: #E63946;"></div>
+          <p style="font-size: 0.875rem; color: #F0F0F0; margin-bottom: 0.25rem;">2026.04 - 至今</p>
+          <p style="font-size: 0.875rem; color: #F0F0F0; margin-bottom: 0.75rem;">AI 学习与创作</p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.5rem;">
+              <span style="color: #E63946; margin-top: 0.375rem; flex-shrink: 0;">·</span>
+              <span style="font-size: 0.875rem; color: #F0F0F0; line-height: 1.625;">努力提升自己的 AI 水平和产出。</span>
+            </li>
+          </ul>
+        </div>
+        <!-- 条目2 -->
+        <div style="position: relative;">
+          <div style="position: absolute; left: -2rem; top: 0.375rem; width: 8px; height: 8px; border-radius: 9999px; background: #E63946;"></div>
+          <p style="font-size: 0.875rem; color: #F0F0F0; margin-bottom: 0.25rem;">2024/09 - 2026/04</p>
+          <p style="font-size: 1rem; color: #F0F0F0; font-weight: 600; margin-bottom: 0.125rem;">奥力研创（厦门）运动科技有限公司</p>
+          <p style="font-size: 0.875rem; color: #F0F0F0; margin-bottom: 0.75rem;">生产部 / 3D打印工程师 / 经理</p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.5rem;">
+              <span style="color: #E63946; margin-top: 0.375rem; flex-shrink: 0;">·</span>
+              <span style="font-size: 0.875rem; color: #F0F0F0; line-height: 1.625;">参与《私人定制3D鞋垫》项目：负责定制档案分析归类、3D模型的定制、水密档处理、软件切片及打印落地，完成200+份定制鞋垫，定制满意度达94%以上。</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数据结构 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">数据结构（data/about.js）</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        export const aboutData = {<br>
+        &nbsp;&nbsp;intro: ['段落1', '段落2', '段落3'], <span style="color: #666666;">// 3 段自我介绍，全部 text-text-primary 最亮白色</span><br>
+        &nbsp;&nbsp;timeline: [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{ date, company, role, duties: [] }<br>
+        &nbsp;&nbsp;], <span style="color: #666666;">// 工作经历，date/company/role/duties 全部 text-text-primary 最亮白色</span><br>
+        }<br><br>
+        <span style="color: #E63946;">/* 颜色规范：所有文字（date / company / role / duties）均使用 text-text-primary 最亮白色 */</span><br>
+        <span style="color: #666666;">/* 红色圆点保留作为视觉点缀，红色 · 作为职责列表标记 */</span>
+      </div>
+    </div>
+
+    <!-- 渲染规则 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">渲染规则</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>字段</th><th>渲染条件</th><th>样式</th></tr></thead>
+      <tbody>
+        <tr><td>date</td><td>必填</td><td>text-sm text-text-primary mb-1</td></tr>
+        <tr><td>company</td><td>可选（空字符串则不渲染）</td><td>text-base text-text-primary font-semibold mb-0.5</td></tr>
+        <tr><td>role</td><td>可选</td><td>text-sm text-text-primary mb-3</td></tr>
+        <tr><td>duties[]</td><td>可选（空数组则不渲染 ul）</td><td>text-sm text-text-primary，每项前缀红色 · </td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 33: Now Page Layout                    -->
+  <!-- ============================================= -->
+  <section id="s33" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">33</div>
+      <h2 class="ds-section-title">Now Page Layout</h2>
+      <p class="ds-section-desc">Now 页：<code>h-screen overflow-hidden</code> 锁死一屏不滚动，PageHeader + 更新时间固定在顶部，"正在忙"和"在思考"两个 section 用 <code>flex-1</code> 各自均分剩余空间并垂直居中（<code>justify-center</code>）。内容多了自适应，不滚动。</p>
+    </div>
+
+    <!-- 布局参数 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">布局参数</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>参数</th><th>值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>页面容器</td><td>h-screen overflow-hidden</td><td><span style="color: #E63946;">锁死一屏高度，禁止滚动</span>（原 min-h-screen 已改）</td></tr>
+        <tr><td>内层布局</td><td>max-w-3xl mx-auto px-8 py-10 h-full flex flex-col</td><td>PageHeader + 更新时间 + 两个 flex-1 section</td></tr>
+        <tr><td>内容宽度</td><td>max-w-3xl (768px) mx-auto</td><td>窄居中</td></tr>
+        <tr><td>PageHeader</td><td>label="NOW" title="最近在做" subtitle="此刻我正在忙什么"</td><td>三段式标题</td></tr>
+        <tr><td>更新时间</td><td>text-sm text-text-tertiary mb-8</td><td>小字灰色，下方留 32px</td></tr>
+        <tr><td>正在忙 section</td><td>flex-1 flex flex-col justify-center min-h-0</td><td><span style="color: #E63946;">flex-1 自适应占满剩余空间，垂直居中</span></td></tr>
+        <tr><td>在思考 section</td><td>flex-1 flex flex-col justify-center min-h-0</td><td>同上，与"正在忙"均分剩余空间</td></tr>
+        <tr><td>列表项</td><td>flex items-start gap-3</td><td>红色圆点 + 文字横排</td></tr>
+        <tr><td>圆点</td><td>w-1.5 h-1.5 rounded-full bg-primary mt-2</td><td>6px 红点，顶部对齐文字</td></tr>
+        <tr><td>section 标题</td><td>text-lg font-semibold text-text-primary mb-5</td><td>大字白色</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 数据结构 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">数据结构（data/now.js）</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        export const nowData = {<br>
+        &nbsp;&nbsp;lastUpdated: '2026-07-03',<br>
+        &nbsp;&nbsp;doing: [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'完成一个后台系统或者SaaS项目',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'提升自己AIGC的能力并产出作品集',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'搭建个人网站，整理过去的项目和心得',<br>
+        &nbsp;&nbsp;],<br>
+        &nbsp;&nbsp;thinking: [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'AI行业我还可以有哪些提升？',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'哪些流程我可以用AI代替实现自动化？',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;'个人网站还有没有可优化的？',<br>
+        &nbsp;&nbsp;], // 可选，空数组则不渲染该 section<br>
+        }
+      </div>
+    </div>
+
+    <!-- 渲染示例 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">渲染示例（锁一屏 + flex-1 自适应）</h3>
+    <div class="demo-box" style="height: 480px; display: flex; flex-direction: column; border: 1px dashed #2A2A2A;">
+      <!-- 模拟 PageHeader -->
+      <div style="padding: 1rem 2rem 0;">
+        <p style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #666666; margin-bottom: 0.5rem;">NOW</p>
+        <h1 style="font-size: 1.875rem; font-weight: 700; color: #F0F0F0; margin-bottom: 0.5rem;">最近在做</h1>
+        <p style="font-size: 1rem; color: #999999;">此刻我正在忙什么</p>
+        <div style="width: 64px; height: 1px; background: linear-gradient(to right, transparent, rgba(230,57,70,0.5), transparent); margin: 1rem 0;"></div>
+      </div>
+      <!-- 更新时间 -->
+      <p style="font-size: 0.875rem; color: #666666; padding: 0 2rem; margin-bottom: 2rem;">最后更新：2026-07-03</p>
+      <!-- 正在忙 section - flex-1 自适应 -->
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 2rem; min-height: 0;">
+        <h3 style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0; margin-bottom: 1.25rem;">正在忙</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+            <span style="width: 6px; height: 6px; border-radius: 9999px; background: #E63946; margin-top: 0.5rem; flex-shrink: 0;"></span>
+            <span style="font-size: 1rem; color: #999999;">完成一个后台系统或者SaaS项目</span>
+          </li>
+          <li style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+            <span style="width: 6px; height: 6px; border-radius: 9999px; background: #E63946; margin-top: 0.5rem; flex-shrink: 0;"></span>
+            <span style="font-size: 1rem; color: #999999;">提升自己AIGC的能力并产出作品集</span>
+          </li>
+          <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <span style="width: 6px; height: 6px; border-radius: 9999px; background: #E63946; margin-top: 0.5rem; flex-shrink: 0;"></span>
+            <span style="font-size: 1rem; color: #999999;">搭建个人网站，整理过去的项目和心得</span>
+          </li>
+        </ul>
+      </div>
+      <!-- 在思考 section - flex-1 自适应 -->
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 2rem 1rem; min-height: 0;">
+        <h3 style="font-size: 1.125rem; font-weight: 600; color: #F0F0F0; margin-bottom: 1.25rem;">在思考</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+            <span style="width: 6px; height: 6px; border-radius: 9999px; background: #E63946; margin-top: 0.5rem; flex-shrink: 0;"></span>
+            <span style="font-size: 1rem; color: #999999;">AI行业我还可以有哪些提升？</span>
+          </li>
+          <li style="display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem;">
+            <span style="width: 6px; height: 6px; border-radius: 9999px; background: #E63946; margin-top: 0.5rem; flex-shrink: 0;"></span>
+            <span style="font-size: 1rem; color: #999999;">哪些流程我可以用AI代替实现自动化？</span>
+          </li>
+          <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <span style="width: 6px; height: 6px; border-radius: 9999px; background: #E63946; margin-top: 0.5rem; flex-shrink: 0;"></span>
+            <span style="font-size: 1rem; color: #999999;">个人网站还有没有可优化的？</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666; margin-top: 0.75rem;">
+      <span style="color: #E63946;">关键变化：</span>从 min-h-screen 可滚动 → h-screen 锁一屏 + flex-1 justify-center 自适应分布
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 34: SoftAurora Background              -->
+  <!-- ============================================= -->
+  <section id="s34" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">34</div>
+      <h2 class="ds-section-title">SoftAurora Background</h2>
+      <p class="ds-section-desc">全屏 WebGL 流动背景：零依赖（浏览器原生 WebGL API，不使用 ogl 等第三方库），原生 WebGL + Perlin 噪声 shader，全屏大三角形覆盖，requestAnimationFrame 持续渲染。鼠标移动时背景产生轻微视差偏移。</p>
+    </div>
+
+    <!-- 基础信息 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">基础信息</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>属性</th><th>值</th></tr></thead>
+      <tbody>
+        <tr><td>组件名</td><td>SoftAurora</td></tr>
+        <tr><td>文件</td><td><code>components/SoftAurora.jsx</code></td></tr>
+        <tr><td>类型</td><td>Client Component（<code>'use client'</code>）</td></tr>
+        <tr><td>依赖</td><td>零依赖，浏览器原生 WebGL API（不使用 ogl 等第三方库）</td></tr>
+        <tr><td>位置</td><td><code>app/layout.jsx</code> 中，<code>fixed inset-0 z-0 pointer-events-none</code> 全屏固定背景</td></tr>
+        <tr><td>层级关系</td><td>SoftAurora 在最底层（z-0），上层内容用 <code>relative z-10</code> 浮在背景之上</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 接口（14 个 props） -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">接口（14 个 props）</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>Prop</th><th>当前值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>speed</td><td>0.6</td><td>流动速度</td></tr>
+        <tr><td>scale</td><td>1.5</td><td>噪声缩放</td></tr>
+        <tr><td>brightness</td><td>1</td><td>整体亮度</td></tr>
+        <tr><td>color1</td><td>#f7f7f7</td><td>主色 1</td></tr>
+        <tr><td>color2</td><td>#e100ff</td><td>主色 2</td></tr>
+        <tr><td>noiseFrequency</td><td>2.5</td><td>噪声频率</td></tr>
+        <tr><td>noiseAmplitude</td><td>1</td><td>噪声振幅</td></tr>
+        <tr><td>bandHeight</td><td>0.5</td><td>色带高度</td></tr>
+        <tr><td>bandSpread</td><td>1</td><td>色带扩散</td></tr>
+        <tr><td>octaveDecay</td><td>0.1</td><td>八度衰减</td></tr>
+        <tr><td>layerOffset</td><td>0</td><td>层偏移</td></tr>
+        <tr><td>colorSpeed</td><td>1</td><td>颜色变化速度</td></tr>
+        <tr><td>enableMouseInteraction</td><td>true</td><td>是否启用鼠标视差交互</td></tr>
+        <tr><td>mouseInfluence</td><td>0.25</td><td>鼠标视差影响系数</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 实现原理 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">实现原理</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* 渲染管线 */</div>
+        原生 WebGL context → 编译 vertex + fragment shader<br>
+        全屏大三角形覆盖（2 个三角形或 1 个超大三角形）<br>
+        fragment shader 内实现 Perlin 噪声 → 多层八度叠加<br>
+        requestAnimationFrame 持续更新 uniform（time + mouse）<br><br>
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* 鼠标交互 */</div>
+        mousemove → 更新 mouse uniform → shader 中偏移采样坐标<br>
+        mouseInfluence=0.25 控制视差强度（轻微偏移，不喧宾夺主）
+      </div>
+    </div>
+
+    <!-- layout.jsx 层级结构 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">layout.jsx 层级结构</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        &lt;body&gt;<br>
+        &nbsp;&nbsp;&lt;SoftAurora /&gt; <span style="color: #666666;">/* fixed inset-0 z-0 pointer-events-none */</span><br>
+        &nbsp;&nbsp;&lt;ClickSpark&gt; <span style="color: #666666;">/* z-10 内容层，包裹 Navbar + main */</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;Navbar /&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;main className="relative z-10"&gt;{children}&lt;/main&gt;<br>
+        &nbsp;&nbsp;&lt;/ClickSpark&gt;<br>
+        &lt;/body&gt;
+      </div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 35: ClickSpark                         -->
+  <!-- ============================================= -->
+  <section id="s35" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">35</div>
+      <h2 class="ds-section-title">ClickSpark</h2>
+      <p class="ds-section-desc">全局点击火花动画：零依赖（Canvas 2D API），点击任意位置时从点击点向外发射 8 条白色线条，ease-out 缓动，400ms 消散。包住 Navbar + main，全局所有页面点击触发。</p>
+    </div>
+
+    <!-- 基础信息 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">基础信息</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>属性</th><th>值</th></tr></thead>
+      <tbody>
+        <tr><td>组件名</td><td>ClickSpark</td></tr>
+        <tr><td>文件</td><td><code>components/ClickSpark.jsx</code></td></tr>
+        <tr><td>类型</td><td>Client Component（<code>'use client'</code>）</td></tr>
+        <tr><td>依赖</td><td>零依赖，Canvas 2D API</td></tr>
+        <tr><td>位置</td><td><code>app/layout.jsx</code> 中，包住 Navbar + main（全局所有页面点击触发）</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 接口（5 个 props） -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">接口（5 个 props）</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>Prop</th><th>当前值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>sparkColor</td><td>#ffffff</td><td>线条颜色（白色）</td></tr>
+        <tr><td>sparkSize</td><td>10</td><td>线条长度基数</td></tr>
+        <tr><td>sparkRadius</td><td>15</td><td>飞出距离（px）</td></tr>
+        <tr><td>sparkCount</td><td>8</td><td>线条数量（按 2π/sparkCount 均分角度）</td></tr>
+        <tr><td>duration</td><td>400</td><td>动画时长（ms）</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 实现原理 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">实现原理</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* 结构 */</div>
+        &lt;div className="relative"&gt; <span style="color: #666666;">/* 包 children */</span><br>
+        &nbsp;&nbsp;{children}<br>
+        &nbsp;&nbsp;&lt;canvas className="absolute inset-0 pointer-events-none" /&gt; <span style="color: #666666;">/* 不阻挡点击 */</span><br>
+        &lt;/div&gt;<br><br>
+        <div style="color: #666666; margin-bottom: 0.5rem;">/* 动画流程 */</div>
+        onClick(e) → 记录点击坐标 (x, y)<br>
+        &nbsp;&nbsp;for (i = 0; i &lt; 8; i++):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;angle = i * (2π / 8)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;线条从 (x, y) 沿 angle 方向飞出 15px<br>
+        requestAnimationFrame 持续渲染 → ease-out 缓动<br>
+        线条向外飞同时长度逐渐缩短 → 400ms 后清除
+      </div>
+    </div>
+
+    <!-- 视觉效果 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">视觉效果</h3>
+    <div class="demo-box" style="text-align: center; padding: 2rem;">
+      <div style="font-size: 0.875rem; color: #999999; margin-bottom: 0.5rem;">点击任意位置 → 8 个方向发射白色线条 → 飞出 15px → 400ms 消散</div>
+      <!-- 简易示意 -->
+      <div style="position: relative; width: 120px; height: 120px; margin: 1rem auto;">
+        <div style="position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; border-radius: 9999px; background: #E63946; transform: translate(-50%, -50%);"></div>
+        <svg width="120" height="120" style="position: absolute; left: 0; top: 0;" viewBox="0 0 120 120">
+          <line x1="60" y1="60" x2="60" y2="40" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="60" y2="80" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="40" y2="60" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="80" y2="60" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="46" y2="46" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="74" y2="46" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="46" y2="74" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="74" y2="74" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #666666;">8 条线条按 2π/8 = 45° 均分角度</div>
+    </div>
+  </section>
+
+  <div class="ds-divider"></div>
+
+  <!-- ============================================= -->
+  <!-- SECTION 36: Works Page End Indicator            -->
+  <!-- ============================================= -->
+  <section id="s36" class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-section-num">36</div>
+      <h2 class="ds-section-title">Works Page End Indicator</h2>
+      <p class="ds-section-desc">作品页底部结束指示器：渐变分隔线 + "End" 小标签 + "所有作品都已展示完" 中文说明。提示用户下面没有更多作品，避免无限滚动寻找。</p>
+    </div>
+
+    <!-- 基础信息 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">基础信息</h3>
+    <table class="ds-table" style="margin-bottom: 1.5rem;">
+      <thead><tr><th>属性</th><th>值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>位置</td><td><code>app/works/page.jsx</code> 卡片网格下方</td><td>作品列表渲染完成后</td></tr>
+        <tr><td>上方留白</td><td><code>mt-20</code> (80px)</td><td>与上方卡片网格的间距</td></tr>
+        <tr><td>文字颜色</td><td><code>text-text-tertiary</code> (#666666)</td><td>灰色，弱化视觉权重</td></tr>
+        <tr><td>分隔线</td><td>渐变分隔线（同站点其他分隔线风格）</td><td>linear-gradient(to right, transparent, rgba(230,57,70,0.3), transparent)</td></tr>
+        <tr><td>目的</td><td>明确告知内容已结束</td><td>避免用户继续向下滚动寻找更多作品</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 渲染示例 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin-bottom: 0.75rem;">渲染示例</h3>
+    <div class="demo-box" style="text-align: center;">
+      <!-- 模拟上方卡片网格的占位 -->
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: #444444; margin-bottom: 5rem;">↑ 上方为作品卡片网格</div>
+      <!-- End Indicator -->
+      <div style="margin-top: 5rem;">
+        <div style="width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(230,57,70,0.3), transparent); margin-bottom: 1.5rem;"></div>
+        <div style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #666666; margin-bottom: 0.5rem;">End</div>
+        <div style="font-size: 0.875rem; color: #666666;">所有作品都已展示完</div>
+      </div>
+    </div>
+
+    <!-- 结构代码 -->
+    <h3 style="font-size: 0.875rem; font-weight: 600; color: #F0F0F0; margin: 1.5rem 0 0.75rem;">结构</h3>
+    <div class="demo-box">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #F0F0F0; line-height: 1.8;">
+        &lt;div className="mt-20 text-center text-text-tertiary"&gt;<br>
+        &nbsp;&nbsp;&lt;div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" /&gt;<br>
+        &nbsp;&nbsp;&lt;div className="mt-6 text-xs tracking-[0.2em] uppercase"&gt;End&lt;/div&gt;<br>
+        &nbsp;&nbsp;&lt;div className="mt-2 text-sm"&gt;所有作品都已展示完&lt;/div&gt;<br>
+        &lt;/div&gt;
       </div>
     </div>
   </section>

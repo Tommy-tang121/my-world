@@ -7,18 +7,16 @@ export default function HeroSection({ name, tagline, subtitle }) {
           background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(230,57,70,0.15), transparent)',
         }}
       />
-      <div className="relative max-w-content mx-auto px-8 pt-4 pb-6 flex items-center justify-center gap-16">
-        <div className="flex-1">
+      <div className="relative max-w-content mx-auto px-8 pt-20 pb-8 flex items-center justify-center gap-10">
+        <div>
           <p className="text-xs tracking-[0.2em] uppercase text-text-tertiary mb-3">{tagline}</p>
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">
             {name}
           </h1>
           <p className="text-lg text-text-secondary">{subtitle}</p>
         </div>
-        <div className="w-[120px] h-[120px] rounded-2xl border border-border shadow-[0_0_40px_rgba(230,57,70,0.1)] bg-surface-elevated flex items-center justify-center flex-shrink-0">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2A2A2A" strokeWidth="1.5">
-            <circle cx="12" cy="8" r="4" /><path d="M20 21a8 8 0 0 0-16 0" />
-          </svg>
+        <div className="w-[100px] h-[100px] rounded-2xl border border-border shadow-[0_0_40px_rgba(230,57,70,0.1)] overflow-hidden flex-shrink-0">
+          <img src="/avatar.jpg" alt={name} className="w-full h-full object-cover" />
         </div>
       </div>
     </section>
