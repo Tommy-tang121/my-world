@@ -16,7 +16,7 @@ export default function HeroSection({ name, tagline, subtitle }) {
           <p className="text-lg text-text-secondary">{subtitle}</p>
         </div>
         <div className="w-[100px] h-[100px] rounded-2xl border border-border shadow-[0_0_40px_rgba(230,57,70,0.1)] overflow-hidden flex-shrink-0">
-          <img src="/avatar.jpg" alt={name} className="w-full h-full object-cover" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/avatar.jpg`} alt={name} className="w-full h-full object-cover" />
         </div>
       </div>
     </section>
