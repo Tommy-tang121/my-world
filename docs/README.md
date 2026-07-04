@@ -4,12 +4,13 @@
 
 ## 技术栈
 
-- **框架**：Next.js 14.2.35（App Router）
+- **框架**：Next.js 14.2.35（App Router，静态导出）
 - **语言**：JavaScript（.jsx，不用 TypeScript）
 - **样式**：Tailwind CSS 3.4.7
 - **背景动画**：SoftAurora（原生 WebGL，零依赖）
 - **点击动画**：ClickSpark（Canvas 2D，零依赖）
 - **启动脚本**：start.bat（Windows）
+- **CI/CD**：GitHub Actions → GitHub Pages（自动部署）
 
 ## 目录结构
 
@@ -49,6 +50,8 @@ e:\My world\
 │   └── videos/               # 演示视频（mp4）
 │       ├── chishane.mp4      # 吃啥呢小程序
 │       └── ai-daily.mp4      # AI Daily
+├── .github/workflows/
+│   └── deploy.yml            # GitHub Actions 自动部署到 Pages
 ├── design/
 │   └── ui-components.html    # UI 设计文档（36 个 section）
 ├── docs/
@@ -75,15 +78,24 @@ e:\My world\
 - ✅ 演示视频（吃啥呢、AI Daily，点击展开自动播放）
 - ✅ 作品按 createdAt 倒序排列（最新在前）
 - ✅ start.bat 启动脚本（清理残留进程 + 重启）
+- ✅ GitHub Pages 自动部署（GitHub Actions，push 到 master 自动构建发布）
 
 ## 未实现 / 待办
 
-- ❌ Vercel 部署（Phase 8）
 - ❌ coding-pm、AI 商品分析工作流的演示视频
 
 ## 启动方式
 
 双击 `start.bat`，浏览器访问 http://localhost:3000
+
+## 部署
+
+每次 push 到 `master` 分支，GitHub Actions 自动构建并部署到 GitHub Pages：
+- **线上地址**：https://tommy-tang121.github.io/my-world/
+- **构建配置**：`.github/workflows/deploy.yml`
+- **静态导出**：`next.config.js` 中 `output: 'export'`，构建产物在 `out/` 目录
+
+> 图片和视频路径使用 `NEXT_PUBLIC_BASE_PATH` 环境变量适配子目录（线上 `/my-world/`，本地为空）。
 
 ## 内容修改指南（非程序员）
 
